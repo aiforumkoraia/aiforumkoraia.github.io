@@ -15,6 +15,8 @@
             padding-top: 5px;
             font-weight: 700;
             color: #00205C;
+            font-size: 3.75rem;
+            line-height: 1;
         }
 
         .divider {
@@ -40,6 +42,13 @@
         @media (min-width: 1224px) {
             #menu {
                 display: flex; /* 큰 화면에서 flex로 표시 */
+            }
+        }
+
+        /* 모바일 화면에 적용되는 스타일 */
+        @media only screen and (max-width: 768px) {
+            .c_header {
+                font-size: 22px; /* 모바일에서 보이는 크기 */
             }
         }
 
@@ -103,7 +112,7 @@
         <p class="text-xl text-gray-500 text-center" style="font-family: 'Nanum Myeongjo', serif;">한국인공지능정책포럼</p>
 
         <!-- Main Title Text -->
-        <h1 class="text-6xl font-bold text-center c_header mt-2">
+        <h1 class="font-bold text-center c_header mt-2">
             AI와 지속가능성, “AI 국가전략 로드맵”
         </h1>
     </section>
