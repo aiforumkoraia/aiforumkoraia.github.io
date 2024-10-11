@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국인공지능정책포럼</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .c_header {
+            padding-top: 5px;
+            font-weight: 700;
+            color: #00205C;
+        }
+
+        .divider {
+            margin: 30px 0;
+        }
+
+        .main-section img {
+            height: auto;
+            max-height: 450px;
+            /* Adjust this value as per your requirement */
+        }
+
+        .buttons a {
+            min-width: 100px;
+        }
+
+        /*!* 모바일에서는 메뉴 숨기기 *!*/
+        /*#menu {*/
+        /*    display: none; !* 기본적으로 메뉴 숨김 *!*/
+        /*}*/
+
+        /* lg 이상 화면에서는 메뉴가 기본적으로 보임 */
+        @media (min-width: 1224px) {
+            #menu {
+                display: flex; /* 큰 화면에서 flex로 표시 */
+            }
+        }
+
+        /* 메뉴 토글 시 hidden 클래스 해제 */
+        .hidden {
+            display: block;
+        }
+
+        * {
+            font-family: 'Pretendard', "Pretendard GOV Variable", "Pretendard GOV";
+        }
+
+    </style>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-white">
+
+<!-- Header Section -->
+<header class="text-white" style="background-color: #011131;">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <!-- 로고 섹션 -->
+        <div class="text-3xl font-bold">
+            <span class="text-black px-2 py-1">
+                <a href="index.html"><img src="img/logo.png" alt="로고 이미지" class="h-12 w-auto max-w-full h-auto sm:h-8 md:h-10 lg:h-12"></a>
+            </span>
+        </div>
+
+        <!-- 모바일 메뉴 토글 버튼 -->
+        <button id="menu-toggle" class="block lg:hidden text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+
+
+        <!-- 내비게이션 메뉴 -->
+        <nav id="menu" class="hidden lg:flex space-x-6">
+            <a href="welcome.html" class="hover:text-gray-300 text-3xl">소개</a>
+            <a href="forum.html" class="hover:text-gray-300 text-3xl">포럼안내</a>
+            <a href="membership.html" class="hover:text-gray-300 text-3xl">입회원서</a>
+        </nav>
+
+
+
+    </div>
+</header>
+
+
+
+
+<!-- Main Section -->
+<main class="container mx-auto px-4 py-8">
+    <!-- Title and Subtitle -->
+    <section class="text-center divider">
+        <!-- Top Small Text -->
+        <p class="text-xl text-gray-500 text-center" style="font-family: 'Nanum Myeongjo', serif;">한국인공지능정책포럼</p>
+
+        <!-- Main Title Text -->
+        <h1 class="text-6xl font-bold text-center c_header mt-2">
+            AI와 지속가능성, “AI 국가전략 로드맵”
+        </h1>
+    </section>
+
+    <hr class="border-t-2 border-black divider">
+
+
+    <!-- Featured Section -->
+    <section class="flex flex-col lg:flex-row justify-between items-start main-section">
+        <!-- Main Content -->
+        <div class="lg:w-3/5 w-full h-full">
+            <img src="img/main_pic.jpg" alt="1페이지 이미지"
+                 class="rounded-lg shadow-md mb-4 object-cover w-full">
+        </div>
+        <!-- Sidebar Content -->
+        <div class="lg:w-1/2 w-full p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold text-blue-900 mb-4">
+                AI 정책을 함께 만들어 나가는 협력의 장
+            </h2>
+            <p class="text-gray-700 mb-6">
+                본 포럼은 단순한 토론의 장을 넘어, 지속가능한 AI 정책 생태계를 조성하는 허브가 될 것입니다. 우리는 10개의 전문 분과를 운영하여 AI 국가 전략, 경제 혁명, 안보, 윤리, 인재 양성 등 다양한 분야에서 장기적이고 실효성 있는 정책을 연구하고 제안할 것입니다.
+            </p>
+            <!-- Buttons -->
+            <div class="flex space-x-4 buttons">
+                <a href="welcome.html" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-700">소개 보기</a>
+                <a href="forum.html" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400">포럼안내 보기</a>
+            </div><br>
+            <hr>
+            <br>
+            <p class="text-2xl font-bold text-blue-900 mb-4">
+                AI 정책을 함께 만들어 갑시다
+            </p>
+            <p class="text-gray-700 mb-6">
+                존경하는 의원님들의 적극적인 참여야말로 이 포럼의 성공과 지속가능성을 위한 핵심 요소입니다. 여러분의 풍부한 입법 경험과 정책적 통찰력이 AI 시대 대한민국의 미래를 밝게 할 것입니다.
+            </p>
+            <!-- Buttons -->
+            <div class="flex space-x-4 buttons">
+                <a href="membership.html" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-700">입회원서 등록하기</a>
+            </div>
+        </div>
+    </section>
+
+
+<!--    <hr style="margin: 1% 0;">-->
+    <section class="py-16" style="margin-top: 40px;">
+        <h2 class="text-5xl font-bold text-gray-900 mb-12" style="margin-bottom: 10px; color: #00205C;">거버넌스 구조</h2>
+        <hr class="border-t-2 border-black divider">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center">
+            <!-- 좌측 텍스트 영역 -->
+            <div class="lg:w-1/2 text-left">
+                <img src="img/main_pic_01.jpg" alt="이미지" class="rounded-lg shadow-xl w-full h-auto">
+            </div>
+
+            <!-- 우측 이미지 영역 -->
+            <div class="lg:w-1/2 lg:pl-12 mt-8 lg:mt-0">
+                <img src="img/main_pic_02.jpg" alt="이미지" class="rounded-lg shadow-xl w-full h-auto">
+
+            </div>
+        </div>
+    </section>
+
+
+</main>
+<footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-4">
+        <!-- 상단 Footer 네비게이션 -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <!-- 로고 및 기관 정보 -->
+            <div class="mb-4 md:mb-0">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="로고 이미지" class="h-12 w-auto">
+                </a>
+                <p class="mt-2 text-sm text-gray-400">
+                    한국인공지능정책포럼
+                    <br>
+                    서울특별시 마포구 백범로 88 (대흥동) 경총회관 3층
+                </p>
+            </div>
+            <!-- 링크 섹션 -->
+            <div class="flex space-x-6">
+                <a href="welcome.html" class="hover:text-gray-300 text-3xl">소개</a>
+                <a href="forum.html" class="hover:text-gray-300 text-3xl">포럼안내</a>
+                <a href="membership.html" class="hover:text-gray-300 text-3xl">입회원서</a>
+            </div>
+        </div>
+
+        <!-- 중간 Footer 추가 정보 -->
+        <div class="border-t border-gray-700 pt-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- 연락처 -->
+                <div>
+                    <h3 class="text-lg font-semibold">연락처</h3>
+                    <p class="mt-2 text-sm text-gray-400">
+                        전화: 02-713-4800
+                        <br>
+                        팩스: 02-6971-8901
+                        <br>
+                        이메일: info@koraia.org
+                    </p>
+                </div>
+
+                <!-- 저작권 정보 -->
+                <div>
+                    <h3 class="text-lg font-semibold">저작권 및 이용안내</h3>
+                    <p class="mt-2 text-sm text-gray-400">
+                        본 사이트의 모든 콘텐츠는 한국인공지능정책포럼에 의해 관리되며, 무단 복제 및 배포를 금합니다. <br> ⓒ 2024 AI Policy Forum, All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 하단 Footer 정보 -->
+        <div class="mt-8 text-center text-sm text-gray-500">
+            <p>ⓒ 2024 AI Policy Forum. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+<!-- JavaScript -->
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        var menu = document.getElementById('menu');
+        menu.classList.toggle('hidden'); // 'hidden' 클래스를 추가/제거하여 메뉴를 토글
+    });
+</script>
+
+
+</html>

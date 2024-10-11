@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국인공지능정책포럼</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+
+        /* 기본 상태 (숨겨진 상태) */
+        #toast-notification {
+            opacity: 0;
+            transform: translateY(20px); /* 살짝 아래에서 시작 */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            display: none; /* 기본으로 숨김 */
+        }
+
+        /* 보이는 상태 */
+        #toast-notification.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0); /* 제자리로 */
+        }
+
+        /* 사라지는 상태 */
+        #toast-notification.hide {
+            opacity: 0;
+            transform: translateY(20px); /* 아래로 이동하며 사라짐 */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+
+        .c_header {
+            padding-top: 5px;
+            font-weight: 700;
+            color: #00205C;
+        }
+
+        .highlight {
+            background-color: #fcfccf;
+            transition: background-color 3s cubic-bezier(0, 0, 0.4, 0.74);
+            display: inline-block;
+            font-weight: 410;
+        }
+
+        .highlight2 {
+            transition: background-color 5s ease;
+            display: inline-block;
+            font-weight: 900;
+            text-decoration: underline #fda7aa wavy;
+        }
+
+        /* 기본 스타일 (PC용) */
+        #clickable-image {
+            max-width: 300px; /* PC에서는 최대 너비 600px로 설정 */
+            height: auto;     /* 비율에 맞게 높이 자동 조정 */
+        }
+
+        /* 모바일용 스타일 (최대 너비가 768px 이하일 때) */
+        @media (max-width: 999px) {
+            #clickable-image {
+                max-width: 100%; /* 모바일에서는 화면 너비 100%로 설정 */
+                height: auto;    /* 비율에 맞게 높이 자동 조정 */
+            }
+        }
+
+        .divider {
+            margin: 30px 0;
+        }
+
+
+        .buttons a {
+            min-width: 100px;
+        }
+
+        /*!* 모바일에서는 메뉴 숨기기 *!*/
+        /*#menu {*/
+        /*    display: none; !* 기본적으로 메뉴 숨김 *!*/
+        /*}*/
+
+        /* lg 이상 화면에서는 메뉴가 기본적으로 보임 */
+        @media (min-width: 1224px) {
+            #menu {
+                display: flex; /* 큰 화면에서 flex로 표시 */
+            }
+        }
+
+        /* 메뉴 토글 시 hidden 클래스 해제 */
+        .hidden {
+            display: block;
+        }
+
+        * {
+            font-family: 'Pretendard', "Pretendard GOV Variable", "Pretendard GOV";
+        }
+
+        .bg-cover-custom {
+            background-image: url('img/back-patten.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 30vh; /* 화면 전체 높이 */
+        }
+
+        .typing {
+            font-family: 'Nanum Myeongjo', serif;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid;
+            animation: linear 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from { border-color: transparent; }
+            to { border-color: black; }
+        }
+
+    </style>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-white">
+
+<!-- Header Section -->
+<header class="text-white" style="background-color: #011131;">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <!-- 로고 섹션 -->
+        <div class="text-3xl font-bold">
+            <span class="text-black px-2 py-1">
+                <a href="index.html"><img src="img/logo.png" alt="로고 이미지" class="h-12 w-auto max-w-full h-auto sm:h-8 md:h-10 lg:h-12"></a>
+            </span>
+        </div>
+
+        <!-- 모바일 메뉴 토글 버튼 -->
+        <button id="menu-toggle" class="block lg:hidden text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+
+
+        <!-- 내비게이션 메뉴 -->
+        <nav id="menu" class="hidden lg:flex space-x-6">
+            <a href="welcome.html" class="hover:text-gray-300 text-3xl">소개</a>
+            <a href="forum.html" class="hover:text-gray-300 text-3xl">포럼안내</a>
+            <a href="membership.html" class="hover:text-gray-300 text-3xl">입회원서</a>
+        </nav>
+
+
+
+    </div>
+</header>
+
+
+<section class="bg-cover-custom relative flex items-center justify-center text-white">
+    <!-- Dark overlay to enhance text visibility -->
+    <div class="absolute inset-0 bg-black opacity-80"></div>
+
+    <!-- Text content over the background image -->
+    <div class="relative z-10 text-center">
+        <h1 class="text-5xl font-bold mb-6" style="font-family: 'Nanum Myeongjo', serif;">입회원서</h1>
+    </div>
+</section>
+
+<section style="position: fixed; right: 10%;">
+    <div id="toast-notification" class="w-full max-w-xs p-4 text-gray-900 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-300" role="alert" style="display: none;">
+        <div class="flex items-center mb-3">
+            <span class="mb-1 text-sm font-semibold text-gray-900 dark:text-white">첫 걸음이 시작되었습니다.</span>
+            <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-white justify-center items-center flex-shrink-0 text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" aria-label="Close" onclick="hideToast()">
+                <span class="sr-only">Close</span>
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                </svg>
+            </button>
+        </div>
+        <div class="flex items-center">
+            <div class="relative inline-block shrink-0">
+                <img class="w-12 h-12 rounded-full" src="/img/register.jpg" alt="Jese Leos image"/>
+                <span class="absolute bottom-0 right-0 inline-flex items-center justify-center w-6 h-6 bg-blue-600 rounded-full">
+                <svg class="w-3 h-3 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 18" fill="currentColor">
+                    <path d="M18 4H16V9C16 10.0609 15.5786 11.0783 14.8284 11.8284C14.0783 12.5786 13.0609 13 12 13H9L6.846 14.615C7.17993 14.8628 7.58418 14.9977 8 15H11.667L15.4 17.8C15.5731 17.9298 15.7836 18 16 18C16.2652 18 16.5196 17.8946 16.7071 17.7071C16.8946 17.5196 17 17.2652 17 17V15H18C18.5304 15 19.0391 14.7893 19.4142 14.4142C19.7893 14.0391 20 13.5304 20 13V6C20 5.46957 19.7893 4.96086 19.4142 4.58579C19.0391 4.21071 18.5304 4 18 4Z" fill="currentColor"/>
+                    <path d="M12 0H2C1.46957 0 0.960859 0.210714 0.585786 0.585786C0.210714 0.960859 0 1.46957 0 2V9C0 9.53043 0.210714 10.0391 0.585786 10.4142C0.960859 10.7893 1.46957 11 2 11H3V13C3 13.1857 3.05171 13.3678 3.14935 13.5257C3.24698 13.6837 3.38668 13.8114 3.55279 13.8944C3.71889 13.9775 3.90484 14.0126 4.08981 13.996C4.27477 13.9793 4.45143 13.9114 4.6 13.8L8.333 11H12C12.5304 11 13.0391 10.7893 13.4142 10.4142C13.7893 10.0391 14 9.53043 14 9V2C14 1.46957 13.7893 0.960859 13.4142 0.585786C13.0391 0.210714 12.5304 0 12 0Z" fill="currentColor"/>
+                </svg>
+                <span class="sr-only">Message icon</span>
+            </span>
+            </div>
+            <div class="ms-3 text-sm font-normal">
+                <div class="text-sm font-semibold text-gray-900 dark:text-white">함께할 미래를 기대합니다.</div>
+                <div class="text-sm font-normal">AI와 함께하는 새로운 여정에 동참해 주셔서 감사합니다.</div>
+                <span class="text-xs font-medium text-blue-600 dark:text-blue-500">한국인공지능정책포럼</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Main Section -->
+<main class="container mx-auto px-4 py-8">
+
+    <div class="container mx-auto p-12">
+        <div class="text-center">
+            <h1 class="text-3xl font-bold leading-tight" style="height: 200px;">
+                <span id="typing-text"></span>
+            </h1>
+        </div>
+        <hr class="border-t-0 border-black divider">
+
+        <form class="max-w-sm mx-auto">
+            <label for="disabled-input" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">제출방법</label>
+            <input type="text" id="disabled-input" aria-label="email" class="mb-5 bg-gray-100 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="brainzoo@koraia.org" disabled>
+
+            <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">작성된 입회 원서를 스캔(촬영)하여 이메일로 제출해 주시기 바랍니다.</p>
+        </form>
+        <hr class="border-t-0 border-black divider">
+        <div class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <img id="clickable-image"  class="p-8 rounded-t-lg" src="img/paper.png" alt="product image" style="display: block; margin: 0 auto; text-align: center; " />
+            <div class="px-5 pb-5">
+                <div class="flex items-center mt-2.5 mb-5">
+                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">PDF</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-3xl font-bold text-gray-900 dark:text-white">입회 원서</span>
+                    <a href="#"  id="show-toast"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">다운로드</a>
+                </div>
+
+                <!-- Toast Notification -->
+
+            </div>
+        </div>
+
+    </div>
+
+</main>
+<footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-4">
+        <!-- 상단 Footer 네비게이션 -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <!-- 로고 및 기관 정보 -->
+            <div class="mb-4 md:mb-0">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="로고 이미지" class="h-12 w-auto">
+                </a>
+                <p class="mt-2 text-sm text-gray-400">
+                    한국인공지능정책포럼
+                    <br>
+                    서울특별시 마포구 백범로 88 (대흥동) 경총회관 3층
+                </p>
+            </div>
+            <!-- 링크 섹션 -->
+            <div class="flex space-x-6">
+                <a href="welcome.html" class="hover:text-gray-300 text-3xl">소개</a>
+                <a href="forum.html" class="hover:text-gray-300 text-3xl">포럼안내</a>
+                <a href="membership.html" class="hover:text-gray-300 text-3xl">입회원서</a>
+            </div>
+        </div>
+
+        <!-- 중간 Footer 추가 정보 -->
+        <div class="border-t border-gray-700 pt-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- 연락처 -->
+                <div>
+                    <h3 class="text-lg font-semibold">연락처</h3>
+                    <p class="mt-2 text-sm text-gray-400">
+                        전화: 02-713-4800
+                        <br>
+                        팩스: 02-6971-8901
+                        <br>
+                        이메일: info@koraia.org
+                    </p>
+                </div>
+
+                <!-- 저작권 정보 -->
+                <div>
+                    <h3 class="text-lg font-semibold">저작권 및 이용안내</h3>
+                    <p class="mt-2 text-sm text-gray-400">
+                        본 사이트의 모든 콘텐츠는 한국인공지능정책포럼에 의해 관리되며, 무단 복제 및 배포를 금합니다. <br> ⓒ 2024 AI Policy Forum, All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 하단 Footer 정보 -->
+        <div class="mt-8 text-center text-sm text-gray-500">
+            <p>ⓒ 2024 AI Policy Forum. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+<!-- JavaScript -->
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        var menu = document.getElementById('menu');
+        menu.classList.toggle('hidden'); // 'hidden' 클래스를 추가/제거하여 메뉴를 토글
+    });
+</script>
+<script>
+    // 스크롤 감지하여 형광펜 효과 추가
+    document.addEventListener("scroll", function () {
+        const highlightableElements = document.querySelectorAll(".highlightable");
+        const windowHeight = window.innerHeight;
+
+        highlightableElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+
+            if (elementTop < windowHeight * 0.8 && elementTop > 0) {
+                element.classList.add("highlight");
+            } else {
+                element.classList.remove("highlight");
+            }
+        });
+    });
+</script>
+<script>
+    // 스크롤 감지하여 형광펜 효과 추가
+    document.addEventListener("scroll", function () {
+        const highlightableElements = document.querySelectorAll(".highlightable2");
+        const windowHeight = window.innerHeight;
+
+        highlightableElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+
+            if (elementTop < windowHeight * 0.4 && elementTop > 0) {
+                element.classList.add("highlight2");
+            } else {
+                element.classList.remove("highlight2");
+            }
+        });
+    });
+</script>
+<script>
+    // 오늘 날짜 가져오기
+    const today = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = today.toLocaleDateString('ko-KR', options); // "2024년 10월 11일" 형식
+
+    // 타이핑될 텍스트
+    const text = `${formattedDate}\n\n국가의 미래를 위한\n현명한 결단으로 함께해 주신\n의원님께 깊은 감사를 전합니다.`;
+    let index = 0;
+    const speed = 50;  // 타이핑 속도
+
+    function typeWriter() {
+        if (index < text.length) {
+            // \n이 있으면 <br>로 변환
+            if (text.charAt(index) === '\n') {
+                document.getElementById("typing-text").innerHTML += '<br>';
+            } else {
+                document.getElementById("typing-text").innerHTML += text.charAt(index);
+            }
+            index++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    window.onload = function() {
+        document.getElementById("typing-text").classList.add('typing');
+        typeWriter();
+    };
+
+    // Toast를 표시하는 함수
+    document.getElementById("show-toast").addEventListener("click", function(event) {
+        event.preventDefault(); // a 링크 기본 동작 막기
+        const toast = document.getElementById("toast-notification");
+        toast.classList.remove("hide"); // 사라지는 상태 제거
+        toast.style.display = "block";  // 표시
+        setTimeout(() => {
+            toast.classList.add("show"); // 자연스럽게 나타남
+        }, 10); // 살짝 지연을 줘야 transition 적용됨
+    });
+
+    // Toast를 숨기는 함수
+    function hideToast() {
+        const toast = document.getElementById("toast-notification");
+        toast.classList.remove("show"); // 보이는 상태 제거
+        toast.classList.add("hide");    // 사라지는 애니메이션 적용
+        setTimeout(() => {
+            toast.style.display = "none"; // 애니메이션이 끝난 후 완전히 숨김
+        }, 500); // transition 시간이 0.5초이므로 500ms 후에 display를 none으로 설정
+    }
+
+</script>
+
+
+
+
+
+</html>
