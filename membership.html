@@ -225,7 +225,8 @@
                 </div>
                 <div class="flex items-center justify-between">
                     <span class="text-3xl font-bold text-gray-900 dark:text-white">입회 원서</span>
-                    <a href="#"  id="show-toast"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">다운로드</a>
+                    <a href="https://raw.githubusercontent.com/aiforumkoraia/aiforumkoraia.github.io/refs/heads/main/Membership.pdf
+"  id="show-toast"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">다운로드</a>
                 </div>
 
                 <!-- Toast Notification -->
@@ -362,7 +363,6 @@
         typeWriter();
     };
 
-    // Toast를 표시하는 함수
     document.getElementById("show-toast").addEventListener("click", function(event) {
         event.preventDefault(); // a 링크 기본 동작 막기
         const toast = document.getElementById("toast-notification");
@@ -371,6 +371,9 @@
         setTimeout(() => {
             toast.classList.add("show"); // 자연스럽게 나타남
         }, 10); // 살짝 지연을 줘야 transition 적용됨
+
+        // PDF 다운로드 트리거
+        triggerPDFDownload();
     });
 
     // Toast를 숨기는 함수
@@ -382,6 +385,18 @@
             toast.style.display = "none"; // 애니메이션이 끝난 후 완전히 숨김
         }, 500); // transition 시간이 0.5초이므로 500ms 후에 display를 none으로 설정
     }
+
+    // PDF 다운로드를 트리거하는 함수
+    function triggerPDFDownload() {
+        const downloadLink = document.createElement('a');
+        downloadLink.href = 'https://raw.githubusercontent.com/aiforumkoraia/aiforumkoraia.github.io/refs/heads/main/Membership.pdf';
+        downloadLink.download = 'Membership.pdf'; // 다운로드될 파일명
+        downloadLink.style.display = 'none'; // 링크를 화면에 표시하지 않음
+        document.body.appendChild(downloadLink);
+        downloadLink.click(); // 링크 클릭 트리거
+        document.body.removeChild(downloadLink); // 링크 제거
+    }
+
 
 </script>
 
