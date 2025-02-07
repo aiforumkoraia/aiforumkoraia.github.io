@@ -313,6 +313,27 @@ footer {
   margin-bottom: 18px;
 }
 
+.footer_logo img:first{
+  max-width: 420px;
+  max-height: 38px;
+  flex-shrink: 0;
+
+}
+
+.footer_logo img:nth-child(2){
+  max-width: 50px;
+  max-height: 50px;
+  flex-shrink: 0;
+  float: right; 
+  cursor: pointer;
+}
+
+div .logo img {
+  max-width: 420px;
+  max-height: 38px;
+  flex-shrink: 0;
+}
+
 .footer_text {
   color: #011131;
   font-family: SUIT;
