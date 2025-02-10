@@ -11,6 +11,68 @@
     <link rel="icon" href="https://koraia.org/default/img/symbol.ico">
     <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
+    <style>
+        /* Gallery grid styling */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .gallery-item {
+            cursor: pointer;
+            overflow: hidden;
+            border: 2px solid #f0f0f0;
+            border-radius: 4px;
+            transition: box-shadow 0.3s;
+        }
+
+        .gallery-item:hover {
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.2s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        .gallery-text {
+            padding: 8px;
+            text-align: center;
+            background: #fff;
+            font-size: 14px;
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            display: block;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 
 <body>
@@ -67,7 +129,103 @@
     <section>
         <h1 class="head_title">관련기사<br><img src="public/images/Line 18.svg" alt="Line 18" style="margin-top: 16px;"></h1>
         <div class="content">
+            <div class="gallery">
+                <div class="gallery-item">
+                    <a href="https://www.newspim.com/news/view/20250204000870" target="_blank">
+                    <img src="https://img.newspim.com/news/2025/02/04/2502041731295760.jpg" alt="Gallery Image" class="gallery-img">
+                    <div class="gallery-text">
+                        <p>인공지능협회·국회·AI기업 "딥시크 쇼크 대응 하려면 AI 생태계 조성해야"
+                        </p>
+                        <small style="color: gray;">뉴스핌</small>
+                        
+                    </div>
+                </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="https://www.etnews.com/20250204000301" target="_blank">
+                    <img src="https://img.etnews.com/news/article/2025/02/04/news-p.v1.20250204.f28f724bda9744f695164d029825c9d4_P1.jpg" alt="Gallery Image" class="gallery-img">
+                    <div class="gallery-text">
+                        <p>전문가들, “국가적 AI 생태계 조성하고 공공 GPU는 한 데 모아야”
 
+                        </p>
+                        <small style="color: gray;">전자신문</small>
+                        
+                    </div>
+                </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="https://www.boannews.com/media/view.asp?idx=135825&kind=" target="_blank">
+                    <img src="http://www.boannews.com/media/upFiles2/2025/02/139223831_165.jpg" alt="Gallery Image" class="gallery-img">
+                    <div class="gallery-text">
+                        <p>중국發 딥시크 쇼크, 국내 AI정책 가속 촉매...국회 긴급간담회 개최
+                        </p>
+                        <small style="color: gray;">보안뉴스</small>
+                        
+                    </div>
+                </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="https://www.mk.co.kr/news/politics/11231897" target="_blank">
+                    <img src="https://pimg.mk.co.kr/news/cms/202502/04/rcv.YNA.20250204.PYH2025020406610001300_P1.jpg" alt="Gallery Image" class="gallery-img">
+                    <div class="gallery-text">
+                        <p>민주당도 ‘딥시크 충격’…“‘AI 3강’은 예산 뒷받침되지 않으면 공염불” 추경 촉구
+                        </p>
+                        <small style="color: gray;">매일경제</small>
+                        
+                    </div>
+                </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="https://news.mt.co.kr/mtview.php?no=2025020411423988045" target="_blank">
+                    <img src="https://thumb.mt.co.kr/06/2025/02/2025020411423988045_1.jpg/dims/optimize/" alt="Gallery Image" class="gallery-img">
+                    <div class="gallery-text">
+                        <p>민주당 "'딥시크 쇼크'에 한국 AI기술 발전안 모색해야…AI 추경 절실"
+
+                        </p>
+                        <small style="color: gray;">머니투데이</small>
+                        
+                    </div>
+                </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="https://www.ddaily.co.kr/page/view/2025020411255710373" target="_blank">
+                    <img src="https://www.ddaily.co.kr/photos/2025/02/04/2025020411251557422_l.jpg" alt="Gallery Image" class="gallery-img">
+                    <div class="gallery-text">
+                        <p>야당 AI 긴급간담회 “AI에 정쟁 없다…민생지원금 포기해서라도 추경 속도”
+
+
+                        </p>
+                        <small style="color: gray;">디지털데일리</small>
+                        
+                    </div>
+                </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="https://www.news1.kr/it-science/general-it/5678512" target="_blank">
+                    <img src="https://www.news1.kr/_next/image?url=https%3A%2F%2Fi3n.news1.kr%2Fsystem%2Fphotos%2F2025%2F2%2F4%2F7112337%2Fhigh.jpg&w=1200&q=75" alt="Gallery Image" class="gallery-img">
+                    <div class="gallery-text">
+                        <p>네이버 하정우 "AI 강국 3위 진입하려면, 네거티브 규제 필요"
+
+                        </p>
+                        <small style="color: gray;">뉴스1</small>
+                        
+                    </div>
+                </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="https://www.newsis.com/view/NISX20250204_0003052428" target="_blank">
+                    <img src="https://img1.newsis.com/2025/02/04/NISI20250204_0001762491_web.jpg?rnd=20250204141337" alt="Gallery Image" class="gallery-img">
+                    <div class="gallery-text">
+                        <p>'딥시크 쇼크' 대응하려면…"AI 인재 양성 넘어 확보 정책 펼쳐야"
+
+                        </p>
+                        <small style="color: gray;">뉴시스</small>
+                        
+                    </div>
+                </a>
+                </div>
+                <!-- Add more gallery items as needed -->
+            </div>
         </div>
 
     </section>
