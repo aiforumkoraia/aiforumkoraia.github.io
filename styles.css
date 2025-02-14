@@ -1111,6 +1111,11 @@ text-align: left;
   /* 텍스트 내용에만 패딩 적용 */
 }
 
+header nav ul li a:hover {
+  color: #3B59E2 !important;
+}
+
+
 .vision-card h2 {
   font-size: 20px;
   font-weight: bold;
