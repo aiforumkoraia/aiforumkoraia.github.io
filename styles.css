@@ -307,7 +307,7 @@ header {
   /* 가로 배치 */
   justify-content: space-between;
   align-items: center;
-  max-width: 100%;
+  max-width: 1200px;
   /* 예시 */
   margin: 40px auto;
   /* 수평 중앙 정렬 */
