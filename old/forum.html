@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국인공지능정책포럼</title>
+    <meta property="og:description" content="본 포럼은 단순한 토론의 장을 넘어, 지속가능한 AI 정책 생태계를 조성하는 허브가 될 것입니다.">
+    <meta property="og:title" content="한국인공지능정책포럼" />
+    <meta property="og:type" content="한국인공지능정책포럼" />
+    <meta property="og:image" content="https://github.com/aiforumkoraia/aiforumkoraia.github.io/blob/main/oglogo.png?raw=true" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="https://koraia.org/default/img/symbol.ico">
+
+    <style>
+        .c_header {
+            padding-top: 5px;
+            font-weight: 700;
+            color: #00205C;
+        }
+
+        .highlight {
+            background-color: #fcfccf;
+            transition: background-color 3s cubic-bezier(0, 0, 0.4, 0.74);
+            display: inline-block;
+            font-weight: 410;
+        }
+
+        .highlight2 {
+            transition: background-color 5s ease;
+            display: inline-block;
+            font-weight: 900;
+            text-decoration: underline #fda7aa wavy;
+        }
+
+
+        .divider {
+            margin: 30px 0;
+        }
+
+
+        .buttons a {
+            min-width: 100px;
+        }
+
+        /*!* 모바일에서는 메뉴 숨기기 *!*/
+        /*#menu {*/
+        /*    display: none; !* 기본적으로 메뉴 숨김 *!*/
+        /*}*/
+
+        /* lg 이상 화면에서는 메뉴가 기본적으로 보임 */
+        @media (min-width: 1224px) {
+            #menu {
+                display: flex; /* 큰 화면에서 flex로 표시 */
+            }
+        }
+
+        /* 메뉴 토글 시 hidden 클래스 해제 */
+        .hidden {
+            display: block;
+        }
+
+        * {
+            font-family: 'Pretendard', "Pretendard GOV Variable", "Pretendard GOV";
+        }
+
+        .bg-cover-custom {
+            background-image: url('img/back-patten.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 30vh; /* 화면 전체 높이 */
+        }
+
+        .typing {
+            font-family: 'Nanum Myeongjo', serif;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from {
+                border-color: transparent;
+            }
+            to {
+                border-color: black;
+            }
+        }
+
+    </style>
+    <link rel="stylesheet" as="style" crossorigin
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-white">
+
+<!-- Header Section -->
+<header class="text-white" style="background-color: #011131;">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <!-- 로고 섹션 -->
+        <div class="text-3xl font-bold">
+            <span class="text-black px-2 py-1">
+                <a href="index.html"><img src="img/logo.png" alt="로고 이미지"
+                                          class="h-12 w-auto max-w-full h-auto sm:h-8 md:h-10 lg:h-12"></a>
+            </span>
+        </div>
+
+        <!-- 모바일 메뉴 토글 버튼 -->
+        <button id="menu-toggle" class="block lg:hidden text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+
+
+        <!-- 내비게이션 메뉴 -->
+        <nav id="menu" class="hidden lg:flex space-x-6">
+            <a href="welcome.html" class="hover:text-gray-300 text-3xl">소개</a>
+            <a href="forum.html" class="hover:text-gray-300 text-3xl">포럼안내</a>
+            <a href="membership.html" class="hover:text-gray-300 text-3xl">입회원서</a>
+        </nav>
+
+
+    </div>
+</header>
+
+
+<section class="bg-cover-custom relative flex items-center justify-center text-white">
+    <!-- Dark overlay to enhance text visibility -->
+    <div class="absolute inset-0 bg-black opacity-80"></div>
+
+    <!-- Text content over the background image -->
+    <div class="relative z-10 text-center">
+        <h1 class="text-5xl font-bold mb-6" style="font-family: 'Nanum Myeongjo', serif;">안내</h1>
+    </div>
+</section>
+
+
+<!-- Main Section -->
+<main class="container mx-auto px-4 py-8">
+    <section class="text-center divider">
+        <!-- Main Title Text -->
+        <h1 class="text-6xl font-bold text-center c_header mt-2">
+            포럼 개요
+        </h1>
+    </section>
+
+    <hr class="border-t-2 border-black divider">
+
+    <!-- Main Title Text -->
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 목적
+    </h1>
+    <div class="mt-6">
+
+        <div style="display: flex; align-items: center;">
+            <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                 fill="none" viewBox="0 0 8 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+            </svg>
+            <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;문명사의 획기적 전기가 될 인공지능에 대한 인식공유</p>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+            <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                 fill="none" viewBox="0 0 8 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+            </svg>
+            <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;인공지능 관련 정책 및 입법 역량 강화</p>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+            <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                 fill="none" viewBox="0 0 8 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+            </svg>
+            <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;인공지능 관련 각계 각 전문가의 협력네트워크 구축</p>
+        </div>
+    </div>
+
+    <hr class="border-t-0 border-black divider">
+
+
+    <!-- Main Title Text -->
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 구성
+    </h1>
+    <div class="mt-6">
+
+        <div style="display: flex; align-items: center;">
+            <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                 fill="none" viewBox="0 0 8 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+            </svg>
+            <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;여야 국회의원 및 산학연 전문가로 구성</p>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+            <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                 fill="none" viewBox="0 0 8 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+            </svg>
+            <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;50명 이상 100명 이하의 정회원으로 구성</p>
+        </div>
+
+    </div>
+
+    <hr class="border-t-0 border-black divider">
+
+    <!-- Main Title Text -->
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 주최/주관
+    </h1>
+    <div class="mt-6">
+
+        <div style="display: flex; align-items: center;">
+            <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                 fill="none" viewBox="0 0 8 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+            </svg>
+            <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;주최: 포럼대표 의원실</p>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+            <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                 fill="none" viewBox="0 0 8 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+            </svg>
+            <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;주관: 한국인공지능협회</p>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+            <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                 fill="none" viewBox="0 0 8 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+            </svg>
+            <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;운영: 한국인공지능정책포럼 운영위원회</p>
+        </div>
+
+
+    </div>
+
+    <br><br><br><br><br>
+
+    <section class="text-center divider">
+        <!-- Main Title Text -->
+        <h1 class="text-6xl font-bold text-center c_header mt-2">
+            조직 구성
+        </h1>
+    <hr class="border-t-2 border-black divider">
+
+
+    </section>
+
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 포럼대표(안)
+    </h1>
+    <div class="mt-6">
+
+        <div style="display: flex; align-items: center;">
+            <div class="flex items-center gap-4">
+                <img class="rounded w-20 h-20" src="https://static.vecteezy.com/system/resources/thumbnails/001/840/618/small/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg" alt="">
+                <div class="font-medium dark:text-white">
+                    <div>박충권</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">국민의힘 국회의원 (과방위)</div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div style="display: flex; align-items: center;">
+            <div class="flex items-center gap-4">
+                <img class="rounded w-20 h-20" src="https://static.vecteezy.com/system/resources/thumbnails/001/840/618/small/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg" alt="">
+                <div class="font-medium dark:text-white">
+                    <div>박민규</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">더불어민주당 국회의원 (과방위)</div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div style="display: flex; align-items: center;">
+            <div class="flex items-center gap-4">
+                <img class="rounded w-20 h-20" src="https://static.vecteezy.com/system/resources/thumbnails/001/840/618/small/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg" alt="">
+                <div class="font-medium dark:text-white">
+                    <div>이해민</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">조국혁신당 국회의원 (과방위)</div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <hr class="border-t-0 border-black divider">
+
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 운영위원회
+    </h1>
+    <div class="mt-6">
+
+        <div style="display: flex; align-items: center;">
+            <div class="flex items-center gap-4">
+                <img class="rounded w-20 h-20" src="https://static.vecteezy.com/system/resources/thumbnails/001/840/618/small/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg" alt="">
+                <div class="font-medium dark:text-white">
+                    <div>배기찬 위원장</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">한국인공지능협회 정책 부회장</div>
+                </div>
+            </div>
+
+
+        </div>
+        <br>
+
+        <div style="display: flex; align-items: center;">
+            <div class="flex -space-x-4 rtl:space-x-reverse">
+                <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="https://static.vecteezy.com/system/resources/thumbnails/001/840/618/small/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg" alt="">
+                <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="https://static.vecteezy.com/system/resources/thumbnails/001/840/618/small/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg" alt="">
+                <a class="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800" href="#" style="margin-right: 22px;">+60</a>
+                <div class="font-medium dark:text-white">
+                    <div>위원: 60명 (산학연관 인사)</div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <br><br><br><br><br>
+
+    <section class="text-center divider">
+        <!-- Main Title Text -->
+        <h1 class="text-6xl font-bold text-center c_header mt-2">
+            주요 주제
+        </h1>
+        <hr class="border-t-2 border-black divider">
+        <table class="table-auto w-full border-collapse">
+            <thead>
+            <tr>
+                <th class="border px-4 py-2 text-center">주제</th>
+                <th class="border px-4 py-2 text-center">하위주제</th>
+                <th class="border px-4 py-2 text-center">관련부처</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- 1 -->
+            <tr>
+                <td class="border px-4 py-2 text-center">1. <br>AI 국가 전략: <br>대한민국의 AI 주권과 글로벌 리더십</td>
+                <td class="border px-4 py-2"  style="text-align: left;">
+                   · 국가AI전략 로드맵<br>
+                   · AI 외교 및 국제 협력<br>
+                   · AI 규제 샌드박스 및 혁신지원 정책<br>
+                   · AI 기반 공공서비스 혁신<br>
+                   · AI 국가 경쟁력 평가지표 개발
+                </td>
+                <td class="border px-4 py-2 text-center">
+                    과학기술정보통신부<br>
+                    외교부<br>
+                    AI전략최고위협의회
+                </td>
+            </tr>
+            <!-- 2 -->
+            <tr>
+                <td class="border px-4 py-2 text-center">2.<br> AI 경제 혁명: <br>산업 구조 재편과 신성장 동력</td>
+                <td class="border px-4 py-2"  style="text-align: left;">
+                   · AI 기반 신산업 발굴 및 융성<br>
+                   · 전 산업의 AI 융합전략<br>
+                   · AI 경제효과 분석 및 예측
+                </td>
+                <td class="border px-4 py-2 text-center">
+                    산업통상자원부<br>
+                    중소벤처기업부<br>
+                    기획재정부
+                </td>
+            </tr>
+            <!-- 3 -->
+            <tr>
+                <td class="border px-4 py-2 text-center">3. <br>AI 안보와 국방: <br>사이버 보안과 지능형 국방 체계</td>
+                <td class="border px-4 py-2"  style="text-align: left;">
+                   · 저출산 시대 AI 기반 국방전략<br>
+                   · 지능형 국방 시스템 개발 전략<br>
+                   · 사이버 보안 체계 구축<br>
+                   · AI를 활용한 정보분석 및 의사결정지원
+                </td>
+                <td class="border px-4 py-2 text-center">
+                    국방부<br>
+                    국가정보원<br>
+                    과학기술정보통신부
+                </td>
+            </tr>
+            <!-- 4 -->
+            <tr>
+                <td class="border px-4 py-2 text-center">4. <br>AI 윤리와 거버넌스: <br>인권, 프라이버시, 책임성</td>
+                <td class="border px-4 py-2"  style="text-align: left;">
+                   · 빅테크 AI 얼라이언트먼트 사례<br>
+                   · AI 의사결정의 투명성과 설명가능성<br>
+                   · AI 사용에 대한 동의와 선택권<br>
+                   · AI 안전 감독 기구 설립
+                </td>
+                <td class="border px-4 py-2 text-center">
+                    법무부<br>
+                    개인정보보호위원회<br>
+                    국가인권위원회
+                </td>
+            </tr>
+            <!-- 5 -->
+            <tr>
+                <td class="border px-4 py-2 text-center">5.<br> AI 기술 혁신: <br>차세대 AI 기술과 인프라 구축</td>
+                <td class="border px-4 py-2"  style="text-align: left;">
+                   · 차세대 AI 기술 연구지원<br>
+                   · AI 활용 기초과학 연구혁신<br>
+                   · AI 특화 반도체 개발 전략<br>
+                   · 국가 AI 클라우드 인프라 구축<br>
+                   · AI 표준화 및 품질관리 체계
+                </td>
+                <td class="border px-4 py-2 text-center">
+                    과학기술정보통신부<br>
+                    산업통상자원부
+                </td>
+            </tr>
+            <!-- 6 -->
+            <tr>
+                <td class="border px-4 py-2 text-center">6.<br> AI 데이터 생태계: <br>데이터 주권, 저작권, 활용 전략</td>
+                <td class="border px-4 py-2"  style="text-align: left;">
+                   · AI 학습용 데이터 저작권 법제화<br>
+                   · 개인정보 보호와 데이터 활용의 균형<br>
+                   · AI 생성 콘텐츠의 법적 지위<br>
+                   · 국제 데이터 이동 규제 및 협력 방안
+                </td>
+                <td class="border px-4 py-2 text-center">
+                    개인정보보호위원회<br>
+                    문화체육관광부<br>
+                    과학기술정보통신부
+                </td>
+            </tr>
+            <!-- 7 -->
+            <tr>
+                <td class="border px-4 py-2 text-center">7.<br> AI 인재 양성: <br>교육 혁신과 글로벌 인재 확보 전략</td>
+                <td class="border px-4 py-2"  style="text-align: left;">
+                   · 글로벌 AI 인재유치 전략<br>
+                   · 초중고 AI 교육과정 도입<br>
+                   · 산업별 AI 재교육 프로그램
+                </td>
+                <td class="border px-4 py-2 text-center">
+                    교육부<br>
+                    고용노동부<br>
+                    과학기술정보통신부
+                </td>
+            </tr>
+            <!-- 8 -->
+            <tr>
+                <td class="border px-4 py-2 text-center">8.<br> AI와 사회변화 대응: <br>노동, 복지, 불평등</td>
+                <td class="border px-4 py-2"  style="text-align: left;">
+                   · AI로 인한 일자리 변화 예측 및 대응<br>
+                   · AI 기반 사회 안전망 구축<br>
+                   · AI 시대의 노동법 개정<br>
+                   · AI와 소득 불평등 해소방안<br>
+                   · 노동 생산성 대체 방안과 기본소득
+                </td>
+                <td class="border px-4 py-2 text-center">
+                    고용노동부<br>
+                    보건복지부<br>
+                    기획재정부
+                </td>
+            </tr>
+            <!-- 9 -->
+            <tr>
+                <td class="border px-4 py-2 text-center">9.<br> AI 기반 공공서비스 혁신: <br>행정부, 입법부, 사법부의 지능화</td>
+                <td class="border px-4 py-2"  style="text-align: left;">
+                   · AI 기반 행정 서비스 개선 및 효율화<br>
+                   · AI를 활용한 정책결정 및 평가 시스템<br>
+                   · 공공 데이터 개방 및 활용전략<br>
+                   · 공공 부문 AI 도입을 위한 법제도 정비<br>
+                   · AI 기반 공공 혁신 성과 측정 및 평가 체계
+                </td>
+                <td class="border px-4 py-2 text-center">
+                    행정안전부<br>
+                    과학기술정보통신부<br>
+                    법무부
+                </td>
+            </tr>
+            <!-- 10 -->
+            <tr>
+                <td class="border px-4 py-2 text-center">10.<br> AI와 지속가능성: <br>기후변화 대응 및 환경보호</td>
+                <td class="border px-4 py-2"  style="text-align: left;">
+                   · AI를 활용한 기후변화 예측 및 대응 전략<br>
+                   · AI 기반 에너지 효율화를 통한 환경보호<br>
+                   · 데이터센터 탄소배출 저감전략<br>
+                   · AI를 통한 지속가능한 농업 및 식량생산<br>
+                   · 친환경 교통 및 물류 시스템<br>
+                   · AI 기술의 탄소 발자국 저감 방안<br>
+                   · 기후기술과 AI 융합 전략
+                </td>
+                <td class="border px-4 py-2 text-center">
+                    환경부<br>
+                    산업통상자원부<br>
+                    농림축산식품부
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </section>
+
+
+
+    <br><br><br><br><br>
+    <section class="text-center divider">
+        <!-- Main Title Text -->
+        <h1 class="text-6xl font-bold text-center c_header mt-2">
+            운영 체계
+        </h1>
+    <hr class="border-t-2 border-black divider">
+
+    </section>
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 정기포럼
+    </h1>
+    <br>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;월 1회 정기 세미나 개최 (12월부터 09월까지 총 10회)</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;주제발표 및 담당 상임위 및 부처 공무원에게 건의 전달 방식</p>
+    </div>
+    <br><br>
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 분과 위원회
+    </h1>
+    <br>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;주제에 따른 10개 분과 구성</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;상시 운영을 통한 지속적인 연구 및 정책 개발</p>
+    </div>
+    <br><br>
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 사무국
+    </h1>
+    <br>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;포럼 운영 지원 및 행정 업무 담당</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;국회 내 상주 인력 배치(안)</p>
+    </div>
+    <br><br>
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 참여 대상자 니즈
+    </h1>
+    <br>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;<strong>국회의원</strong>: 후원회 조직 및 정책 연구 조달, 입법실적</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        &nbsp;&nbsp;&nbsp;<svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;<strong>보좌관</strong>: AI 자격 과정 워크숍 제공</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;<strong>산학연 기관장</strong>: 정책발표 창구마련 및 네트워크 형성지원</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        &nbsp;&nbsp;&nbsp;<svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;<strong>기관 전문가</strong>: AI 자격 과정 워크숍 제공</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;<strong>기업</strong>: 정책제안 창구마련 및 네트워크 형성지원</p>
+    </div>
+    <br><br><br><br><br>
+
+    <section class="text-center divider">
+        <!-- Main Title Text -->
+        <h1 class="text-6xl font-bold text-center c_header mt-2">
+            연간 활동 계획
+        </h1>
+    <hr class="border-t-2 border-black divider">
+
+    </section>
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 정기 포럼 주제 (예시)
+    </h1><br>
+
+    <ol class="relative border-s border-gray-200 dark:border-gray-700">
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-red-600 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2024년 12월</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">AI 국가 전략과 글로벌 리더십 (발족식)</h3>
+        </li>
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2025년 01월</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">AI 기반 경제 혁신과 산업 고도화</h3>
+        </li>
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2025년 02월</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">AI 안보 및 국방 혁신</h3>
+        </li>
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2025년 03월</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">AI 윤리와 인간 중심 거버넌스</h3>
+        </li>
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2025년 04월</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">차세대 AI 기술 개발, 연구혁신 방법론 및 인프라 구축</h3>
+        </li>
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2025년 05월</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">AI 데이터 경제와 디지털 주권</h3>
+        </li>
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2025년 06월</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">AI 시대의 교육 혁신과 인재 양성</h3>
+        </li>
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2025년 07월</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">AI와 사회 변화 대응: 노동, 복지, 불평등</h3>
+        </li>
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2025년 08월</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">AI 기반 공공서비스 혁신과 스마트 정부</h3>
+        </li>
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2025년 09월</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">AI와 지속가능성: 기후변화 대응 및 환경보호</h3>
+        </li>
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2025년 10월</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">포럼 종합 리뷰 및 차년도 주제 선정</h3>
+        </li>
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-red-600 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2025년 11월</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">인공지능 기업인의 밤 참여 (폐회식)</h3>
+        </li>
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2025년 12월</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">포럼 정비</h3>
+        </li>
+
+    </ol>
+<br><br>
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 분과 위원회 활동
+    </h1><br>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;주제별 신층 연구 및 정책 제안 수행</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;월 1회 분과별 오프라인 회의 진행 (포럼 진행날과 매칭)</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;포럼 주제발표 준비 및 백서 작성 지원</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;분과별 카카오톡 그룹 개설</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;실시간 의견 교환 및 정보 공유</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;백서 작성을 위한 아이디어 논의 상시화</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;긴급 현안에 대한 신속한 대응 체계 구축</p>
+    </div>
+
+    <br><br>
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 연례 행사
+    </h1><br>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;AI 정책 포럼 개회식 개최 (연 1회)</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;인공지능 정책 백서 발간 (연 1회, 포럼 공동저)</p>
+    </div>
+
+    <br><br><br><br><br>
+
+    <section class="text-center divider">
+        <!-- Main Title Text -->
+        <h1 class="text-6xl font-bold text-center c_header mt-2">
+            주요 산출물
+        </h1>
+        <hr class="border-t-2 border-black divider">
+
+    </section>
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 정책 백서
+    </h1><br>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;연 1회 발간</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;각 전문가 발제 및 의원 논의 내용 포함</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;포럼 회원 공동 저작</p>
+    </div>
+    <br><br>
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 온라인 플랫폼
+    </h1><br>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;포럼 전용 홈페이지 구축</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;자료 공유 및 홍보 채널로 활용</p>
+    </div>
+    <br><br>
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 홍보 자료
+    </h1><br>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;포럼 소개 브로셔 제작</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;회원 입회서 양식 개발</p>
+    </div>
+
+    <br><br><br><br><br>
+
+    <section class="text-center divider">
+        <!-- Main Title Text -->
+        <h1 class="text-6xl font-bold text-center c_header mt-2">
+            성과 측정 및 평가
+        </h1>
+        <hr class="border-t-2 border-black divider">
+
+    </section>
+    <h1 class="text-3xl font-bold c_header mt-2">
+        · 입법 활동: AI 관련 법안 발의 및 통과 건수
+    </h1><br>
+    <h1 class="text-3xl font-bold c_header mt-2">
+        · 정책 영향: 정부 AI정책에 반영된 제안 건수
+    </h1><br>
+    <h1 class="text-3xl font-bold c_header mt-2">
+        · 대중 인식: AI정책에 대한 여론조사 실시
+    </h1><br>
+    <h1 class="text-3xl font-bold c_header mt-2">
+        · 전문성 향상: 포럼 참여 의원들의 AI 이해도 평가
+    </h1><br>
+    <h1 class="text-3xl font-bold c_header mt-2">
+        · 협회 목표: 한국인공지능협회의 정책 및 입법 영향력
+    </h1>
+    <div style="display: flex; align-items: center;">
+        &nbsp;&nbsp;&nbsp;&nbsp;<svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;AI유관 학과 졸업생 협회 자동등록</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        &nbsp;&nbsp;&nbsp;&nbsp;<svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;주4일제 시행</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        &nbsp;&nbsp;&nbsp;&nbsp;<svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;지자체 특화 데이터 센터 건립</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        &nbsp;&nbsp;&nbsp;&nbsp;<svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;AI기본법 역할 수행 (수요조사, 통계, 기술 및 기업인증 등)</p>
+    </div>
+
+    <br><br><br><br><br>
+
+    <section class="text-center divider">
+        <!-- Main Title Text -->
+        <h1 class="text-6xl font-bold text-center c_header mt-2">
+            예산 계획 및 확보 방안
+        </h1>
+        <hr class="border-t-2 border-black divider">
+
+    </section>
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 예산 항목
+    </h1>
+    <br>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;정기 포럼 운영비</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;분과 위원회 활동 지원비</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;백서 발간 및 출판비</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;홈페이지 구축 및 운영비</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;홍보 자료 제작비</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;사무국 운영비</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;외부 전문가 자문비 </p>
+    </div>
+    <br><br>
+    <h1 class="text-4xl font-bold c_header mt-2">
+        · 예산 확보 방안
+    </h1>
+    <br>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;국회 예산 할당</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;정부 부처 협력 사업 예산</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;대기업 및 중견기업 후원 모집</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;AI 관련 대기업: 네이버, 카카오, 삼성전자, LG전자 등</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;중견 AI 기업: 마음AI, 뷰노, 루닛 등</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;후원 기업에 대한 혜택 제공: 포럼 참여 기회, 백서 내 기업 소개 등</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;학술 단체 및 연구기관 협력 기금 </p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;크라우드펀딩을 통한 시민 참여형 후원 (선택적) </p>
+    </div>
+
+
+    <br><br><br><br><br>
+
+    <section class="text-center divider">
+        <!-- Main Title Text -->
+        <h1 class="text-6xl font-bold text-center c_header mt-2">
+            기대 효과
+        </h1>
+        <hr class="border-t-2 border-black divider">
+
+    </section>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                     fill="none" viewBox="0 0 8 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+    </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;국회의원들의 AI 이해도 증진 및 입법 역량 강화</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;산학연 협력을 통한 실효성 있는 AI 정책 수립</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;대한민국 AI 경쟁력 강화를 위한 제도적 기반 마련</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;AI 기술 발전과 윤리적 고려사항의 균형 있는 접근</p>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+        </svg>
+        <p class="text-lg" style="line-height: 2.2rem; font-size: 1.3rem;">&nbsp;글로벌 AI 거버넌스 논의에서의 한국의 위상 제고</p>
+    </div>
+
+
+
+
+</main>
+
+
+<hr class="border-t-0 border-black divider">
+
+
+<footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-4">
+        <!-- 상단 Footer 네비게이션 -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <!-- 로고 및 기관 정보 -->
+            <div class="mb-4 md:mb-0">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="로고 이미지" class="h-12 w-auto">
+                </a>
+                <p class="mt-2 text-sm text-gray-400">
+                    한국인공지능정책포럼
+                    <br>
+                    서울특별시 마포구 백범로 88 (대흥동) 경총회관 3층
+                </p>
+            </div>
+            <!-- 링크 섹션 -->
+            <div class="flex space-x-6">
+                <a href="welcome.html" class="hover:text-gray-300 text-3xl">소개</a>
+                <a href="forum.html" class="hover:text-gray-300 text-3xl">포럼안내</a>
+                <a href="membership.html" class="hover:text-gray-300 text-3xl">입회원서</a>
+            </div>
+        </div>
+
+        <!-- 중간 Footer 추가 정보 -->
+        <div class="border-t border-gray-700 pt-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- 연락처 -->
+                <div>
+                    <h3 class="text-lg font-semibold">연락처</h3>
+                    <p class="mt-2 text-sm text-gray-400">
+                        전화: 02-713-4800
+                        <br>
+                        팩스: 02-6971-8901
+                        <br>
+                        이메일: info@koraia.org
+                    </p>
+                </div>
+
+                <!-- 저작권 정보 -->
+                <div>
+                    <h3 class="text-lg font-semibold">저작권 및 이용안내</h3>
+                    <p class="mt-2 text-sm text-gray-400">
+                        본 사이트의 모든 콘텐츠는 한국인공지능정책포럼에 의해 관리되며, 무단 복제 및 배포를 금합니다. <br> ⓒ 2024 AI Policy Forum, All Rights
+                        Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 하단 Footer 정보 -->
+        <div class="mt-8 text-center text-sm text-gray-500">
+            <p>ⓒ 2024 AI Policy Forum. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+<!-- JavaScript -->
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        var menu = document.getElementById('menu');
+        menu.classList.toggle('hidden'); // 'hidden' 클래스를 추가/제거하여 메뉴를 토글
+    });
+</script>
+<script>
+    // 스크롤 감지하여 형광펜 효과 추가
+    document.addEventListener("scroll", function () {
+        const highlightableElements = document.querySelectorAll(".highlightable");
+        const windowHeight = window.innerHeight;
+
+        highlightableElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+
+            if (elementTop < windowHeight * 0.8 && elementTop > 0) {
+                element.classList.add("highlight");
+            } else {
+                element.classList.remove("highlight");
+            }
+        });
+    });
+</script>
+<script>
+    // 스크롤 감지하여 형광펜 효과 추가
+    document.addEventListener("scroll", function () {
+        const highlightableElements = document.querySelectorAll(".highlightable2");
+        const windowHeight = window.innerHeight;
+
+        highlightableElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+
+            if (elementTop < windowHeight * 0.4 && elementTop > 0) {
+                element.classList.add("highlight2");
+            } else {
+                element.classList.remove("highlight2");
+            }
+        });
+    });
+</script>
+<script>
+    const text = "존경하는 국회의원 여러분,";  // 타이핑될 텍스트
+    let index = 0;
+    const speed = 130;  // 타이핑 속도
+
+    function typeWriter() {
+        if (index < text.length) {
+            document.getElementById("typing-text").innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    window.onload = function () {
+        document.getElementById("typing-text").classList.add('typing');
+        typeWriter();
+    };
+</script>
+
+
+</html>

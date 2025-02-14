@@ -94,6 +94,23 @@
         }
 
 
+        /* hover-bar 기본 스타일 */
+        .hover-bar {
+            width: 100px;
+            height: 5px;
+            background: #44CBE4;
+            border-radius: 5px;
+            margin: 1px auto;
+            opacity: 0;
+            transition: opacity 0.5s ease, width 0.5s ease;
+        }
+
+        /* 카드 영역 (.m3) 에 마우스 오버 시 hover-bar 보이기 */
+        .m3:hover .hover-bar {
+            opacity: 1;
+            width: 50%;
+        }
+
 
         .btn:hover {
             background-color: #44CBE4;
@@ -151,6 +168,9 @@
         }
 
 
+        header nav ul li a:hover {
+            color: #3B59E2 !important;
+        }
 
         .header:hover .logo a img {
             content: url('poster/logo_white_edtion.svg');
@@ -423,9 +443,9 @@
             line-height: 24px;
         }
 
-        .circle_text1 > .t1,
-        .circle_text2 > .t1,
-        .circle_text3 > .t1 {
+        .circle_text1>.t1,
+        .circle_text2>.t1,
+        .circle_text3>.t1 {
             color: #6E6E6E;
             font-family: SUIT;
             font-size: 16px;
@@ -494,26 +514,25 @@
 
         /* Optional styling for the logo */
         .logo {
-            max-width: 100px;
             margin-bottom: 10px;
         }
 
         /* Mobile adjustments */
         @media screen and (max-width: 768px) {
             .split-section {
-            height: auto;
-            padding: 40px 0;
+                height: auto;
+                padding: 40px 0;
             }
 
             .circle {
-            width: 600px;
-            height: 600px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+                width: 600px;
+                height: 600px;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
             }
 
-            body > section > div.circle_icon1 > img {
+            body>section>div.circle_icon1>img {
                 width: 150%;
                 margin-left: 20px;
             }
@@ -521,48 +540,47 @@
             .circle_icon1,
             .circle_icon2,
             .circle_icon3 {
-            width: 80px;
-            height: 80px;
+                width: 80px;
+                height: 80px;
             }
 
             .circle_icon1 {
-            left: 0%;
-            top: 5%;
+                left: 0%;
+                top: 5%;
             }
 
             .circle_icon2 {
-            left: 0%;
-            top: 35%;
+                left: 0%;
+                top: 35%;
             }
 
             .circle_icon3 {
-            left: 0%;
-            top: 65%;
+                left: 0%;
+                top: 65%;
             }
 
             .circle_text1,
             .circle_text2,
             .circle_text3 {
-            font-size: 18px;
-            left: calc(10% + 100px);
-            line-height: 22px;
+                font-size: 18px;
+                left: calc(10% + 100px);
+                line-height: 22px;
             }
 
             .left-content,
             .right-content {
-            position: static;
-            transform: none;
-            width: 90%;
-            text-align: center;
-            margin: 20px auto;
+                position: static;
+                transform: none;
+                width: 90%;
+                text-align: center;
+                margin: 20px auto;
             }
 
             .left-content p {
-            font-size: 16px;
-            line-height: 24px;
+                font-size: 16px;
+                line-height: 24px;
             }
         }
-
     </style>
 </head>
 
@@ -582,6 +600,7 @@
                         <li><a href="expected-outcomes" style="color: white;">기대효과</a></li>
                         <li><a href="overview" style="color: white;">개요</a></li>
                         <li><a href="organization" style="color: white;">조직구성</a></li>
+                        <li></li>
                     </ul>
                 </li>
                 <li>
@@ -590,6 +609,7 @@
                         <li><a href="annual-plan" style="color: white;">연간 활동 계획</a></li>
                         <li><a href="key-topics" style="color: white;">주요 주제</a></li>
                         <li><a href="key-deliverables" style="color: white;">주요 산출물</a></li>
+                        <li></li>
                     </ul>
                 </li>
                 <li>
@@ -599,11 +619,13 @@
                         <li><a href="news" style="color: white;">관련기사</a></li>
                         <li><a href="events" style="color: white;">행사안내</a></li>
                         <li><a href="media" style="color: white;">사진/영상</a></li>
+                        <li></li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);">입회원서</a>
+                <li><a href="membership-form">입회원서</a>
                     <ul class="submenu">
                         <li><a href="membership-form" style="color: white;">입회원서</a></li>
+                        <li></li>
                     </ul>
                 </li>
             </ul>
@@ -700,8 +722,7 @@
                     <img src="poster/m_card_1.png" alt="" style="object-fit: cover;">
                     <div class="card_text">
                         국회의원
-                        <div
-                            style="width: 100px; height: 5px; background: #44CBE4; border-radius: 5px; margin: 1px auto;">
+                        <div class="hover-bar">
                         </div>
                         <div style="font-size: 14px; margin-top: 23px;">AI로 미래를 선도하는<br>차세대 정치역량 확보!</div>
                     </div>
@@ -710,8 +731,7 @@
                     <img src="poster/m_card_2.png" alt="" style="object-fit: cover;">
                     <div class="card_text">
                         기관/단체
-                        <div
-                            style="width: 100px; height: 5px; background: #44CBE4; border-radius: 5px; margin: 1px auto;">
+                        <div class="hover-bar">
                         </div>
                         <div style="font-size: 14px; margin-top: 23px;">AI 정책을 선도하는<br>기관으로 도약</div>
                     </div>
@@ -720,9 +740,9 @@
                     <img src="poster/m_card_3.png" alt="" style="object-fit: cover;">
                     <div class="card_text">
                         중소기업
-                        <div
-                            style="width: 100px; height: 5px; background: #44CBE4; border-radius: 5px; margin: 1px auto;">
+                        <div class="hover-bar">
                         </div>
+
                         <div style="font-size: 14px; margin-top: 23px;">AI 혁신으로 의회/대기업과의<br>협력 체계 구축</div>
                     </div>
                 </div>
@@ -730,8 +750,7 @@
                     <img src="poster/m_card_4.png" alt="" style="object-fit: cover;">
                     <div class="card_text">
                         참여자
-                        <div
-                            style="width: 100px; height: 5px; background: #44CBE4; border-radius: 5px; margin: 1px auto;">
+                        <div class="hover-bar">
                         </div>
                         <div style="font-size: 14px; margin-top: 23px;">AI 정책 플랫폼을 통해<br>AI정책 설계자로 참여</div>
                     </div>
@@ -740,8 +759,7 @@
                     <img src="poster/m_card_5.png" alt="" style="object-fit: cover;">
                     <div class="card_text">
                         대기업
-                        <div
-                            style="width: 100px; height: 5px; background: #44CBE4; border-radius: 5px; margin: 1px auto;">
+                        <div class="hover-bar">
                         </div>
                         <div style="font-size: 14px; margin-top: 23px;">AI 생태계의 중심에서<br>비즈니스 모델을 재설계</div>
                     </div>
