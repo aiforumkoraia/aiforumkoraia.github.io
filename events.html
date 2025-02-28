@@ -71,7 +71,41 @@
     <section>
         <h1 class="head_title">행사안내<br><img src="public/images/Line 18.svg" alt="Line 18" style="margin-top: 16px;"></h1>
         <div class="content">
-            <img src="poster/공지사항.png" style="width: 100%;" alt="">
+            <div class="gallery">
+                <div class="gallery-item">
+                   <a href="https://www.youtube.com/watch?v=dvYBTabUhLU" target="_blank"><img src="media/poster.jpg" alt="Gallery Image" class="gallery-img" style="width: 400px;"></a>
+                    <div class="gallery-text">
+                        <p>‘딥시크 쇼크’ 대응과 AI 발전 전략</p>
+                        <small>2025.02.04</small>
+                        
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- Modal for enlarged image -->
+            <div id="modal" class="modal">
+                <img class="modal-content" id="modal-img">
+            </div>
+
+
+
+            <script>
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const modal = document.getElementById('modal');
+                        const modalImg = document.getElementById('modal-img');
+                        const img = item.querySelector('.gallery-img');
+                        modalImg.src = img.src;
+                        modal.style.display = "flex";
+                    });
+                });
+
+                // Close modal when clicking anywhere on the modal
+                document.getElementById('modal').addEventListener('click', () => {
+                    document.getElementById('modal').style.display = "none";
+                });
+            </script>
         </div>
 
     </section>
