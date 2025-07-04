@@ -74,6 +74,19 @@
             display: block;
             border-radius: 4px;
         }
+
+        /* Video specific styling */
+        .gallery-item video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Loading and error states */
+        #loading, #error {
+            color: #666;
+            font-size: 16px;
+        }
     </style>
 </head>
 
@@ -136,75 +149,156 @@
         <h1 class="head_title">사진/영상<br><img src="public/images/Line 18.svg" alt="Line 18" style="margin-top: 16px;">
         </h1>
         <div class="content">
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="media/250301.jpg" alt="Gallery Image" class="gallery-img">
-                    <div class="gallery-text">
-                        <p>스마트도시 AI 1</p>
-                        <small>2025.02.04</small>
-
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="media/250302.jpg" alt="Gallery Image" class="gallery-img">
-                    <div class="gallery-text">
-                        <p>스마트도시 AI 2</p>
-                        <small>2025.02.04</small>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="media/250303.jpg" alt="Gallery Image" class="gallery-img">
-                    <div class="gallery-text">
-                        <p>스마트도시 AI 3</p>
-                        <small>2025.02.04</small>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="media/4.jpg" alt="Gallery Image" class="gallery-img">
-                    <div class="gallery-text">
-                        <p>‘딥시크 쇼크’ 대응과 AI 발전 전략 1</p>
-                        <small>2025.02.04</small>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="media/2.jpg" alt="Gallery Image" class="gallery-img">
-                    <div class="gallery-text">
-                        <p>‘딥시크 쇼크’ 대응과 AI 발전 전략 2</p>
-                        <small>2025.02.04</small>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="media/3.jpg" alt="Gallery Image" class="gallery-img">
-                    <div class="gallery-text">
-                        <p>‘딥시크 쇼크’ 대응과 AI 발전 전략 3</p>
-                        <small>2025.02.04</small>
-                    </div>
-                </div>
-                <!-- Add more gallery items as needed -->
+            <div id="loading" style="text-align: center; padding: 40px;">
+                <p>미디어를 불러오는 중...</p>
+            </div>
+            <div class="gallery" id="gallery" style="display: none;">
+                <!-- 동적으로 생성될 갤러리 아이템들 -->
+            </div>
+            <div id="error" style="text-align: center; padding: 40px; display: none;">
+                <p>미디어를 불러오는 중 오류가 발생했습니다.</p>
             </div>
 
             <!-- Modal for enlarged image -->
             <div id="modal" class="modal">
                 <img class="modal-content" id="modal-img">
+                <video class="modal-content" id="modal-video" controls style="display: none;">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
 
-
-
             <script>
-                document.querySelectorAll('.gallery-item').forEach(item => {
-                    item.addEventListener('click', () => {
-                        const modal = document.getElementById('modal');
-                        const modalImg = document.getElementById('modal-img');
-                        const img = item.querySelector('.gallery-img');
-                        modalImg.src = img.src;
-                        modal.style.display = "flex";
+                // API 엔드포인트 설정
+                const API_ENDPOINT = 'https://we.koraia.org:5001/api/media';
+
+                // 미디어 데이터를 가져오는 함수
+                async function fetchMediaData() {
+                    try {
+                        const response = await fetch(API_ENDPOINT);
+                        const result = await response.json();
+
+                        if (result.success && result.data) {
+                            renderGallery(result.data);
+                        } else {
+                            showError();
+                        }
+                    } catch (error) {
+                        console.error('미디어 데이터 로딩 실패:', error);
+                        showError();
+                    }
+                }
+
+                // 갤러리 렌더링 함수
+                function renderGallery(mediaData) {
+                    const gallery = document.getElementById('gallery');
+                    const loading = document.getElementById('loading');
+
+                    // 로딩 상태 숨기기
+                    loading.style.display = 'none';
+
+                    // 갤러리 비우기
+                    gallery.innerHTML = '';
+
+                    // 미디어 아이템들 생성
+                    mediaData.forEach(item => {
+                        const galleryItem = createGalleryItem(item);
+                        gallery.appendChild(galleryItem);
                     });
+
+                    // 갤러리 보여주기
+                    gallery.style.display = 'grid';
+
+                    // 클릭 이벤트 등록
+                    setupModalEvents();
+                }
+
+                // 갤러리 아이템 생성 함수
+                function createGalleryItem(item) {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+
+                    // 미디어 경로 처리
+                    const mediaPath = item.media_path.startsWith('http') ? 
+                        item.media_path : `https://we.koraia.org:5001/static/uploads/${item.media_path}`;
+
+                    // 날짜 포맷팅
+                    const uploadDate = new Date(item.upload_date);
+                    const formattedDate = uploadDate.toLocaleDateString('ko-KR', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit'
+                    }).replace(/\./g, '.').replace(/\. /g, '.');
+
+                    if (item.media_type === 'video') {
+                        galleryItem.innerHTML = `
+                            <video class="gallery-img" preload="metadata" data-type="video" data-src="${mediaPath}">
+                                <source src="${mediaPath}" type="video/mp4">
+                            </video>
+                            <div class="gallery-text">
+                                <p>${item.title}</p>
+                                <small>${formattedDate}</small>
+                            </div>
+                        `;
+                    } else {
+                        galleryItem.innerHTML = `
+                            <img src="${mediaPath}" alt="${item.title}" class="gallery-img" data-type="image">
+                            <div class="gallery-text">
+                                <p>${item.title}</p>
+                                <small>${formattedDate}</small>
+                            </div>
+                        `;
+                    }
+
+                    return galleryItem;
+                }
+
+                // 모달 이벤트 설정 함수
+                function setupModalEvents() {
+                    document.querySelectorAll('.gallery-item').forEach(item => {
+                        item.addEventListener('click', () => {
+                            const modal = document.getElementById('modal');
+                            const modalImg = document.getElementById('modal-img');
+                            const modalVideo = document.getElementById('modal-video');
+                            const media = item.querySelector('.gallery-img');
+                            const mediaType = media.getAttribute('data-type');
+
+                            if (mediaType === 'video') {
+                                modalImg.style.display = 'none';
+                                modalVideo.style.display = 'block';
+                                modalVideo.querySelector('source').src = media.getAttribute('data-src') || media.src;
+                                modalVideo.load();
+                            } else {
+                                modalVideo.style.display = 'none';
+                                modalImg.style.display = 'block';
+                                modalImg.src = media.src;
+                            }
+
+                            modal.style.display = "flex";
+                        });
+                    });
+                }
+
+                // 에러 상태 보여주기
+                function showError() {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('error').style.display = 'block';
+                }
+
+                // 모달 닫기 이벤트
+                document.getElementById('modal').addEventListener('click', (e) => {
+                    if (e.target === e.currentTarget) {
+                        const modal = document.getElementById('modal');
+                        const modalVideo = document.getElementById('modal-video');
+                        modal.style.display = "none";
+                        modalVideo.pause(); // 비디오 일시정지
+                    }
                 });
 
-                // Close modal when clicking anywhere on the modal
-                document.getElementById('modal').addEventListener('click', () => {
-                    document.getElementById('modal').style.display = "none";
-                });
+                // 페이지 로드 시 미디어 데이터 가져오기
+                document.addEventListener('DOMContentLoaded', fetchMediaData);
+
+
             </script>
         </div>
 
