@@ -1,650 +1,138 @@
+<!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>한국인공지능정책컨센서스</title> <!-- CSS 파일 연결 -->
     <meta property="og:description"
-        content="대한민국 AI 산업의 균형 발전과 윤리적 규제, 글로벌 협력을 통해 지속 가능한 AI 정책 생태계를 조성하는 한국인공지능정책컨센서스입니다다.">
+        content="대한민국 AI 산업의 균형 발전과 윤리적 규제, 글로벌 협력을 통해 지속 가능한 AI 정책 생태계를 조성하는 한국인공지능정책컨센서스입니다.">
     <meta property="og:title" content="한국인공지능정책컨센서스" />
     <meta property="og:type" content="website" />
     <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/slider.css" />
+    <link rel="stylesheet" href="css/popup.css" />
+    <link rel="stylesheet" href="css/responsive-header.css" />
 
     <meta property="og:image"
         content="https://github.com/aiforumkoraia/aiforumkoraia.github.io/blob/main/img/og25_img.png?raw=true" />
     <link rel="icon" href="https://koraia.org/default/img/symbol.ico">
-    <style>
-        /* 슬라이더 컨테이너 */
-        .slider-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            /* 헤더 높이만큼 아래로 밀려나게 하려면 아래처럼 조정 가능:
-     height: calc(100vh - 70px);
-     margin-top: 70px; 
-  */
-            /* 고정 헤더 뒤에 숨지 않게 top을 주거나 margin-top을 줌 */
-        }
-
-        /* 슬라이드  */
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 100%;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            z-index: 1;
-            transition: all 0.5s ease-in-out;
-        }
-
-        .slide.active {
-            left: 0;
-            opacity: 1;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* 이미지를 화면 가득 채우려면 cover 사용 */
-        }
-
-        /* 슬라이드 내용(텍스트) */
-        .slide-content {
-            position: absolute;
-            top: 60%;
-            left: 43%;
-            transform: translate(-50%, -50%);
-            color: #fff;
-            text-align: center;
-            /* 배경 반투명 박스가 필요하면 추가 */
-            color: #FFF;
-            font-family: SUIT !important;
-            font-size: 16px !important;
-            font-style: normal !important;
-            font-weight: 500 !important;
-            line-height: 24px !important;
-            /* 150% */
-        }
-
-
-
-        .btn {
-            display: flex;
-            width: 320px;
-            height: 60px;
-            padding: 10px 50px;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            flex-shrink: 0;
-            border-radius: 10px;
-            border: 1px solid #44CBE4;
-            background-color: transparent;
-            color: #44CBE4;
-            text-align: center;
-            font-family: SUIT;
-            font-size: 24px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 60px;
-            /* 250% */
-        }
-
-
-        /* hover-bar 기본 스타일 */
-        .hover-bar {
-            width: 100px;
-            height: 5px;
-            background: #44CBE4;
-            border-radius: 5px;
-            margin: 1px auto;
-            opacity: 0;
-            transition: opacity 0.5s ease, width 0.5s ease;
-        }
-
-        /* 카드 영역 (.m3) 에 마우스 오버 시 hover-bar 보이기 */
-        .m3:hover .hover-bar {
-            opacity: 1;
-            width: 50%;
-        }
-
-
-        .btn:hover {
-            background-color: #44CBE4;
-            color: #FFF !important;
-        }
-
-        .slide-content h2 {
-            color: #FFF;
-            font-family: "S-Core Dream";
-            font-size: 48px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 60px;
-            /* 125% */
-        }
-
-        .slide-content p {
-            color: #FFF;
-            font-family: SUIT;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 24px;
-            /* 150% */
-        }
-
-        /* 헤더 스타일 수정 */
-        .header {
-            position: absolute;
-            /* 고정 위치로 변경 */
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            /* 슬라이더보다 위에 표시되도록 z-index 설정 */
-            background-color: transparent;
-            /* 배경을 투명하게 설정 */
-            transition: background-color 0.3s ease;
-            /* 스크롤 시 배경색 변화 애니메이션 */
-        }
-
-        /* 헤더 숨김 클래스 추가 */
-        .header.hide {
-            transform: translateY(-100%);
-        }
-
-
-        /* $SELECTION_PLACEHOLDER$ refactored */
-        .header:hover {
-            background-color: white;
-        }
-
-        .header:hover .nav ul li a {
-            color: black;
-        }
-
-
-        header nav ul li a:hover {
-            color: #3B59E2 !important;
-        }
-
-        .header:hover .logo a img {
-            content: url('poster/logo_white_edtion.svg');
-            /* Change logo on hover */
-        }
-
-        /* 슬라이더 컨테이너 수정 */
-        .slider-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            top: 0;
-            /* top 값을 0으로 수정 */
-        }
-
-        .nav ul li a {
-            color: white;
-        }
-
-        /* 모바일 환경에서 카드를 보기 좋게 개선 */
-        @media screen and (max-width: 768px) {
-            .cards-wrapper {
-                flex-direction: column;
-                align-items: center;
-                margin: 0 auto;
-            }
-
-            .m3 {
-                width: 95%;
-                max-width: 300px;
-                margin: 15px 0;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                border-radius: 10px;
-                overflow: hidden;
-
-            }
-
-            .m3 img {
-                width: 100%;
-                display: block;
-            }
-
-            .card_text {
-                padding: 10px;
-                font-size: 14px;
-                text-align: center;
-            }
-
-            .underline {
-                width: 100px;
-                height: 5px;
-                background: #44CBE4;
-                border-radius: 5px;
-                margin: 5px auto;
-            }
-
-            .description {
-                font-size: 14px;
-                margin-top: 10px;
-            }
-        }
-
-
-        /* 모바일 대응을 위한 미디어 쿼리 추가 */
-        @media screen and (max-width: 768px) {
-            .slide-content {
-                top: 50%;
-                left: 50%;
-                width: 90%;
-                padding: 20px;
-            }
-
-            .slide-content>div {
-                flex-direction: column !important;
-                align-items: center;
-            }
-
-            .slide-content>div>div {
-                width: 100% !important;
-                text-align: center !important;
-                margin-bottom: 20px;
-            }
-
-            .slide-content h2 {
-                font-size: 32px;
-                line-height: 40px;
-                margin-bottom: 20px;
-            }
-
-            .slide-content p {
-                font-size: 14px;
-                line-height: 20px;
-                margin-bottom: 20px;
-            }
-
-            /* 세로 구분선 제거 */
-            .slide-content>div>div:nth-child(2) {
-                display: none;
-            }
-
-            /* 버튼 크기 조정 */
-            .btn {
-                width: 100%;
-                max-width: 280px;
-                height: 50px;
-                padding: 8px 30px;
-                font-size: 18px;
-                line-height: 50px;
-                margin: 0 auto;
-            }
-
-            /* 슬라이더 컨테이너 높이 조정 */
-            .slider-container {
-                height: calc(100vh - 60px);
-            }
-
-            .slide img {
-                height: 100vh;
-                object-position: center;
-            }
-        }
-
-        .m3_head {
-            padding-top: 160px;
-            margin-left: 10%;
-            color: #000;
-            font-family: "S-Core Dream";
-            font-size: 64px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 60px;
-            /* 93.75% */
-            text-transform: uppercase;
-            margin-bottom: 60px;
-
-        }
-
-        .m3 {
-            width: 277px;
-            height: 410px;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 160px;
-            border-radius: 20px;
-
-        }
-
-
-        .card_text {
-            position: absolute;
-            bottom: 50%;
-            width: 100%;
-            text-align: center;
-            color: white;
-            font-family: SUIT;
-            font-size: 36px;
-            font-style: normal;
-            font-weight: 500;
-        }
-
-        @media screen and (max-width: 768px) {
-            .content>div {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .m3 {
-                width: 100%;
-                max-width: 300px;
-                /* margin: 5px 0; */
-            }
-
-            .m3_head {
-                padding-top: 180px;
-                font-size: 40px;
-                margin-left: 5%;
-            }
-        }
-
-        .carousel-indicators button {
-            background-color: rgba(255, 255, 255, 0.50);
-            cursor: pointer;
-            z-index: 1;
-            /* Default color */
-        }
-
-        .carousel-indicators button.active {
-            background-color: #ffffff;
-            z-index: 1;
-            /* Active color */
-        }
-
-        .split-section {
-            position: relative;
-            width: 100%;
-            height: 650px;
-            /* Adjust height as needed */
-            background-color: #F1F1F1;
-            overflow: hidden;
-        }
-
-        .circle {
-            position: absolute;
-            left: 55%;
-            top: 50%;
-            transform: translate(-100%, -50%);
-            width: 1300px;
-            /* Adjust size as needed */
-            height: 1100px;
-            background-color: white;
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .circle_icon1 {
-            left: 50%;
-            position: absolute;
-            /* Customize position */
-            top: 10%;
-            width: 140px;
-            /* Adjust size as needed */
-            height: 140px;
-            background-color: #3B59E2;
-            border-radius: 50%;
-            z-index: 0;
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.10);
-        }
-
-        .circle_icon2 {
-            left: 52%;
-            position: absolute;
-            /* Customize position */
-            top: 40%;
-            width: 140px;
-            /* Adjust size as needed */
-            height: 140px;
-            background-color: #3B59E2;
-            border-radius: 50%;
-            z-index: 0;
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.10);
-        }
-
-        .circle_icon3 {
-            left: 50%;
-            position: absolute;
-            /* Customize position */
-            top: 70%;
-            width: 140px;
-            /* Adjust size as needed */
-            height: 140px;
-            background-color: #3B59E2;
-            border-radius: 50%;
-            z-index: 0;
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.10);
-        }
-
-        .circle_text1 {
-            left: calc(52% + 180px + 10px);
-            position: absolute;
-            top: 18%;
-            z-index: 1;
-            /* 추가 스타일 지정 가능 */
-            color: #121212;
-            font-family: SUIT;
-            font-size: 26px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 24px;
-        }
-
-        .circle_text1>.t1,
-        .circle_text2>.t1,
-        .circle_text3>.t1 {
-            color: #6E6E6E;
-            font-family: SUIT;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 24px;
-            margin-left: 57px;
-            float: right;
-        }
-
-        .circle_text2 {
-            left: calc(53% + 180px + 10px);
-            position: absolute;
-            top: 48%;
-            z-index: 1;
-            color: #121212;
-            font-family: SUIT;
-            font-size: 26px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 24px;
-        }
-
-        .circle_text3 {
-            left: calc(51% + 180px + 10px);
-            position: absolute;
-            top: 78%;
-            z-index: 1;
-            color: #121212;
-            font-family: SUIT;
-            font-size: 26px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 24px;
-        }
-
-        .left-content,
-        .right-content {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1;
-            color: #000;
-            width: 35%;
-        }
-
-        .left-content {
-            left: 5%;
-        }
-
-        .left-content p {
-            color: #6E6E6E;
-            font-family: SUIT;
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 36px;
-            margin-top: 20px;
-        }
-
-        .right-content {
-            right: 5%;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        /* Optional styling for the logo */
-        .logo {
-            margin-bottom: 10px;
-        }
-
-        /* Mobile adjustments */
-        @media screen and (max-width: 768px) {
-            .split-section {
-                height: auto;
-                padding: 40px 0;
-            }
-
-            .circle {
-                width: 600px;
-                height: 600px;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-            }
-
-            body>section>div.circle_icon1>img {
-                width: 150%;
-                margin-left: 20px;
-            }
-
-            .circle_icon1,
-            .circle_icon2,
-            .circle_icon3 {
-                width: 80px;
-                height: 80px;
-            }
-
-            .circle_icon1 {
-                left: 0%;
-                top: 5%;
-            }
-
-            .circle_icon2 {
-                left: 0%;
-                top: 35%;
-            }
-
-            .circle_icon3 {
-                left: 0%;
-                top: 65%;
-            }
-
-            .circle_text1,
-            .circle_text2,
-            .circle_text3 {
-                font-size: 18px;
-                left: calc(10% + 100px);
-                line-height: 22px;
-            }
-
-            .left-content,
-            .right-content {
-                position: static;
-                transform: none;
-                width: 90%;
-                text-align: center;
-                margin: 20px auto;
-            }
-
-            .left-content p {
-                font-size: 16px;
-                line-height: 24px;
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    <header class="header">
+    <header class="header main-page">
         <div class="logo">
             <!-- 사이트 로고나 텍스트 -->
-            <a href="/"><img src="poster/logo_black_edtion.svg" alt=""></a>
+            <a href="/"><img src="poster/logo_black_edtion.svg" alt="한국인공지능정책컨센서스 로고"></a>
         </div>
         <nav class="nav">
             <ul>
                 <li>
                     <a href="javascript:void(0);">컨센서스 소개</a>
                     <ul class="submenu">
-                        <li><a href="greeting" style="color: white;">인사말</a></li>
-                        <li><a href="vision" style="color: white;">비전</a></li>
-                        <li><a href="expected-outcomes" style="color: white;">기대효과</a></li>
-                        <li><a href="overview" style="color: white;">개요</a></li>
-                        <li><a href="organization" style="color: white;">조직구성</a></li>
-                        <li></li>
+                        <li><a href="greeting">인사말</a></li>
+                        <li><a href="vision">비전</a></li>
+                        <li><a href="expected-outcomes">기대효과</a></li>
+                        <li><a href="overview">개요</a></li>
+                        <li><a href="organization">조직구성</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="javascript:void(0);">컨센서스 활동</a>
                     <ul class="submenu">
-                        <li><a href="annual-plan" style="color: white;">연간 활동 계획</a></li>
-                        <li><a href="key-topics" style="color: white;">주요 주제</a></li>
-                        <li><a href="key-deliverables" style="color: white;">주요 산출물</a></li>
-                        <li></li>
+                        <li><a href="annual-plan">연간 활동 계획</a></li>
+                        <li><a href="key-topics">주요 주제</a></li>
+                        <li><a href="key-deliverables">주요 산출물</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="javascript:void(0);">컨센서스 소식</a>
                     <ul class="submenu">
                         
-                        <li><a href="news" style="color: white;">관련기사</a></li>
-                        <li><a href="events" style="color: white;">행사안내</a></li>
-                        <li><a href="media" style="color: white;">사진/영상</a></li>
-                        <li></li>
+                        <li><a href="news">관련기사</a></li>
+                        <li><a href="events">행사안내</a></li>
+                        <li><a href="media">사진/영상</a></li>
                     </ul>
                 </li>
                 <li><a href="membership-form">입회원서</a>
                     <ul class="submenu">
-                        <li><a href="membership-form" style="color: white;">입회원서</a></li>
-                        <li></li>
+                        <li><a href="membership-form">입회원서</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
+        
+        <!-- 햄버거 메뉴 버튼 -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
 
+    <!-- 모바일 네비게이션 오버레이 -->
+    <div class="mobile-nav-overlay"></div>
+
+    <!-- 모바일 네비게이션 메뉴 -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-header">
+            <img src="poster/logo_black_edtion.svg" alt="한국인공지능정책컨센서스 로고" style="height: 30px;">
+            <button class="mobile-nav-close">&times;</button>
+        </div>
+        <ul>
+            <li>
+                <a href="javascript:void(0);">
+                    컨센서스 소개
+                    <button class="submenu-toggle">&#9662;</button>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="greeting">인사말</a></li>
+                    <li><a href="vision">비전</a></li>
+                    <li><a href="expected-outcomes">기대효과</a></li>
+                    <li><a href="overview">개요</a></li>
+                    <li><a href="organization">조직구성</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    컨센서스 활동
+                    <button class="submenu-toggle">&#9662;</button>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="annual-plan">연간 활동 계획</a></li>
+                    <li><a href="key-topics">주요 주제</a></li>
+                    <li><a href="key-deliverables">주요 산출물</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    컨센서스 소식
+                    <button class="submenu-toggle">&#9662;</button>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="news">관련기사</a></li>
+                    <li><a href="events">행사안내</a></li>
+                    <li><a href="media">사진/영상</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="membership-form">입회원서</a>
+            </li>
+        </ul>
+    </nav>
+
     <!-- 풀스크린 슬라이더 영역 -->
-    <div class="slider-container" style="background-color: black;">
+    <div class="slider-container slider-bg-black">
         <div class="slide active">
             <img src="poster/bg01.png" alt="슬라이드1">
             <div class="slide-content">
-                <div style="display: flex; justify-content: space-between; width: 100%;">
-                    <div style="text-align: left; width: 55%;">
+                <div class="slide-content-container">
+                    <div class="slide-content-left">
                         <h2>AI와 지속가능성, <br>"AI 국가전략 로드맵"</h2>
                     </div>
-                    <div style="width: 1px; height: 100px; background-color: white; margin: 0 20px;"></div>
-
-                    <div style="text-align: left; width: 45%;">
+                    <div class="slide-content-divider"></div>
+                    <div class="slide-content-right">
                         <p>본 포럼은 단순한 토론의 장을 넘어,
                             지속가능한 AI 정책 생태계를 조성하는 허브가 될 것입니다.
                             우리는 10개의 전문 분과를 운영하여
@@ -661,13 +149,12 @@
         <div class="slide">
             <img src="poster/bg03.png" alt="슬라이드3">
             <div class="slide-content">
-                <div style="display: flex; justify-content: space-between; width: 100%;">
-                    <div style="text-align: left; width: 45%;">
+                <div class="slide-content-container">
+                    <div class="slide-content-left">
                         <h2>AI 정책을 함께<br>만들어 갑시다</h2>
                     </div>
-                    <div style="width: 1px; height: 100px; background-color: white; margin: 0 20px;"></div>
-
-                    <div style="text-align: left; width: 45%;">
+                    <div class="slide-content-divider"></div>
+                    <div class="slide-content-right">
                         <p>본 포럼은 단순한 토론의 장을 넘어,
                             지속가능한 AI 정책 생태계를 조성하는 허브가 될 것입니다.
                             우리는 10개의 전문 분과를 운영하여
@@ -682,13 +169,10 @@
             </div>
         </div>
         <!-- Carousel Indicators -->
-        <div class="carousel-indicators"
-            style="position: absolute; top: 60%; right: 5%; display: flex; flex-direction: column; transform: translateY(-50%); z-index: 1;">
-            <button type="button" data-slide-to="0" aria-label="Slide 1"
-                style="border: none; border-radius: 50%; width: 10px; height: 10px; margin: 5px;"
+        <div class="carousel-indicators">
+            <button type="button" data-slide-to="0" aria-label="Slide 1" class="carousel-indicator"
                 onclick="changeSlide(0)"></button>
-            <button type="button" data-slide-to="1" aria-label="Slide 2"
-                style="border: none; border-radius: 50%; width: 10px; height: 10px; margin: 5px;"
+            <button type="button" data-slide-to="1" aria-label="Slide 2" class="carousel-indicator"
                 onclick="changeSlide(1)"></button>
         </div>
     </div>
@@ -696,18 +180,18 @@
     <section class="split-section">
         <div class="left-content">
             <img class="logo" src="poster/Info.png" alt="Logo">
-            <h2><img src="poster/logo_white_edtion.svg" alt=""></h2>
+            <h2><img src="poster/logo_black_edtion.svg" alt="한국인공지능정책컨센서스 화이트 로고"></h2>
             <p>“객관적이고 균형 잡힌<br>
                 AI정책 방향을 지속적으로 제시”</p>
         </div>
         <div class="circle"></div>
-        <div class="circle_icon1"><img src="poster/main_icon1.png" alt=""></div>
+        <div class="circle_icon1"><img src="poster/main_icon1.png" alt="법제도 아이콘"></div>
         <div class="circle_text1">법제도<div class="t1">인공지능 법제도 정비</div>
         </div>
-        <div class="circle_icon2"><img src="poster/main_icon2.png" style="width: 100%; margin-left: 30px;" alt=""></div>
+        <div class="circle_icon2"><img src="poster/main_icon2.png" alt="산업화 아이콘" class="icon2-img"></div>
         <div class="circle_text2">산업화<div class="t1">인공지능 산업화 추진</div>
         </div>
-        <div class="circle_icon3"><img src="poster/main_icon3.png" style="width: 90%; margin-left: 30px;" alt=""></div>
+        <div class="circle_icon3"><img src="poster/main_icon3.png" alt="의견수렴 아이콘" class="icon3-img"></div>
         <div class="circle_text3">의견수렴<div class="t1">인공지능 이해관계자 의견 수렴</div>
         </div>
     </section>
@@ -716,54 +200,53 @@
 
 
 
-    <div style="background: #F1F1F1; width: 100%; padding: 0; z-index: 1;">
+    <div class="main-section-bg">
         <div class="m3_head">WHO NEEDS?</div>
         <div class="content">
-            <div style="display: flex;justify-content: center;gap: 10px;overflow: hidden;flex-wrap: nowrap;">
+            <div class="cards-container">
                 <div class="m3">
-                    <img src="poster/m_card_1.png" alt="" style="object-fit: cover;">
+                    <img src="poster/m_card_1.png" alt="국회의원" class="card-image">
                     <div class="card_text">
                         국회의원
                         <div class="hover-bar">
                         </div>
-                        <div style="font-size: 14px; margin-top: 23px;">AI로 미래를 선도하는<br>차세대 정치역량 확보!</div>
+                        <div class="card-subtitle">AI로 미래를 선도하는<br>차세대 정치역량 확보!</div>
                     </div>
                 </div>
                 <div class="m3">
-                    <img src="poster/m_card_2.png" alt="" style="object-fit: cover;">
+                    <img src="poster/m_card_2.png" alt="기관/단체" class="card-image">
                     <div class="card_text">
                         기관/단체
                         <div class="hover-bar">
                         </div>
-                        <div style="font-size: 14px; margin-top: 23px;">AI 정책을 선도하는<br>기관으로 도약</div>
+                        <div class="card-subtitle">AI 정책을 선도하는<br>기관으로 도약</div>
                     </div>
                 </div>
                 <div class="m3">
-                    <img src="poster/m_card_3.png" alt="" style="object-fit: cover;">
+                    <img src="poster/m_card_3.png" alt="중소기업" class="card-image">
                     <div class="card_text">
                         중소기업
                         <div class="hover-bar">
                         </div>
-
-                        <div style="font-size: 14px; margin-top: 23px;">AI 혁신으로 의회/대기업과의<br>협력 체계 구축</div>
+                        <div class="card-subtitle">AI 혁신으로 의회/대기업과의<br>협력 체계 구축</div>
                     </div>
                 </div>
                 <div class="m3">
-                    <img src="poster/m_card_4.png" alt="" style="object-fit: cover;">
+                    <img src="poster/m_card_4.png" alt="참여자" class="card-image">
                     <div class="card_text">
                         참여자
                         <div class="hover-bar">
                         </div>
-                        <div style="font-size: 14px; margin-top: 23px;">AI 정책 플랫폼을 통해<br>AI정책 설계자로 참여</div>
+                        <div class="card-subtitle">AI 정책 플랫폼을 통해<br>AI정책 설계자로 참여</div>
                     </div>
                 </div>
                 <div class="m3">
-                    <img src="poster/m_card_5.png" alt="" style="object-fit: cover;">
+                    <img src="poster/m_card_5.png" alt="대기업" class="card-image">
                     <div class="card_text">
                         대기업
                         <div class="hover-bar">
                         </div>
-                        <div style="font-size: 14px; margin-top: 23px;">AI 생태계의 중심에서<br>비즈니스 모델을 재설계</div>
+                        <div class="card-subtitle">AI 생태계의 중심에서<br>비즈니스 모델을 재설계</div>
                     </div>
                 </div>
             </div>
@@ -784,154 +267,13 @@
     </div>
 </div> -->
 
-<style>
-    .popup-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
 
-    .popup-container.show {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup-content {
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        max-width: 90%;
-        max-height: 90%;
-        overflow: auto;
-        position: relative;
-    }
-
-    .popup-content img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .popup-actions {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 15px;
-    }
-
-    .popup-actions button {
-        padding: 8px 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-family: SUIT;
-        font-weight: 500;
-    }
-
-    #hideForDay {
-        background-color: #f0f0f0;
-        color: #333;
-    }
-
-    #closePopup {
-        background-color: #3B59E2;
-        color: white;
-    }
-
-    .popup-actions button:hover {
-        opacity: 0.9;
-    }
-
-    @media screen and (max-width: 768px) {
-        .popup-content {
-            width: 85%;
-            padding: 15px;
-        }
-
-        .popup-actions {
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .popup-actions button {
-            width: 100%;
-        }
-    }
-</style>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const popup = document.getElementById('popup');
-        const hideForDayBtn = document.getElementById('hideForDay');
-        const closePopupBtn = document.getElementById('closePopup');
-        
-        // 쿠키 설정 함수
-        function setCookie(name, value, days) {
-            let expires = "";
-            
-            if (days) {
-                const date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            
-            document.cookie = name + "=" + value + expires + "; path=/";
-        }
-        
-        // 쿠키 가져오기 함수
-        function getCookie(name) {
-            const nameEQ = name + "=";
-            const ca = document.cookie.split(';');
-            
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-            }
-            
-            return null;
-        }
-        
-        // 팝업 표시 여부 확인
-        function checkShowPopup() {
-            const popupHidden = getCookie('hidePopup');
-            
-            if (!popupHidden) {
-                popup.classList.add('show');
-            }
-        }
-        
-        // 24시간 동안 안보기 버튼 클릭
-        hideForDayBtn.addEventListener('click', function() {
-            setCookie('hidePopup', 'true', 1); // 1일 동안 쿠키 설정
-            popup.classList.remove('show');
-        });
-        
-        // 닫기 버튼 클릭
-        closePopupBtn.addEventListener('click', function() {
-            popup.classList.remove('show');
-        });
-        
-        // 페이지 로드 시 팝업 표시 확인
-        checkShowPopup();
-    });
-</script>
 
     <footer>
         <div class="footer">
             <div class="footer_logo">
-                <img src="public/images/logo_B.svg" alt="">
-                <img src="public/images/to_top_btn.svg" alt="">
+                <img src="public/images/logo_B.svg" alt="로고">
+                <img src="public/images/to_top_btn.svg" alt="맨 위로" class="to-top-btn">
 
             </div>
             <div class="footer_text">
@@ -939,54 +281,15 @@
                     T. 02-713-4800・F. 02-6971-8901・E-mail. info@koraia.org</p>
             </div>
 
-            <hr style="background: #011131; height: 0.3px;">
+            <hr class="footer-divider">
             <div class="footer_copylight">ⓒ 2025 AI Policy Forum, All Rights Reserved.</div>
-
+        </div>
     </footer>
 
-    <script>
-        document.querySelector('.footer_logo img:last-child').addEventListener('click', function () {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        const slides = document.querySelectorAll('.slide');
-        const slideButtons = document.querySelectorAll('.carousel-indicators button'); // Carousel buttons
-        let currentIndex = 0;
-        const slideInterval = 10000;
-
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slideButtons.forEach(button => button.classList.remove('active'));
-            slides[index].classList.add('active');
-            slideButtons[index].classList.add('active');
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            showSlide(currentIndex);
-        }
-
-        function changeSlide(index) {
-            currentIndex = index;
-            showSlide(currentIndex);
-        }
-
-        showSlide(currentIndex);
-        let intervalId = setInterval(nextSlide, slideInterval); // Store the interval id
-
-        // Pause on hover
-        const sliderContainer = document.querySelector('.slider-container');
-        sliderContainer.addEventListener('mouseenter', () => {
-            clearInterval(intervalId); // Clear the interval
-        });
-
-        sliderContainer.addEventListener('mouseleave', () => {
-            intervalId = setInterval(nextSlide, slideInterval); // Restart the interval
-        });
-    </script>
+    <script src="js/common.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/mobile-nav.js"></script>
 </body>
 
 </html>

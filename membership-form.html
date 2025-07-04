@@ -1,11 +1,11 @@
+<!DOCTYPE html>
 <html lang="ko">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>입회원서</title> <!-- CSS 파일 연결 -->
-    <meta property="og:description"
-        content="대한민국 AI 산업의 균형 발전과 윤리적 규제, 글로벌 협력을 통해 지속 가능한 AI 정책 생태계를 조성하는 한국인공지능정책컨센서스입니다다.">
+    <title>입회원서</title>
+    <meta property="og:description" content="대한민국 AI 산업의 균형 발전과 윤리적 규제, 글로벌 협력을 통해 지속 가능한 AI 정책 생태계를 조성하는 한국인공지능정책컨센서스입니다.">
     <meta property="og:title" content="한국인공지능정책컨센서스" />
     <meta property="og:type" content="website" />
     <meta property="og:image"
@@ -13,162 +13,172 @@
     <link rel="icon" href="https://koraia.org/default/img/symbol.ico">
     <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/responsive-header.css" />
 </head>
 
 <body>
     <header class="header">
         <div class="logo">
-            <!-- 사이트 로고나 텍스트 -->
-            <a href="/"><img src="public/images/logo_B.svg" alt=""></a>
+            <a href="/"><img src="public/images/logo_B.svg" alt="로고"></a>
         </div>
         <nav class="nav">
             <ul>
                 <li>
                     <a href="javascript:void(0);">컨센서스 소개</a>
                     <ul class="submenu">
-                        <li><a href="greeting" style="color: white;">인사말</a></li>
-                        <li><a href="vision" style="color: white;">비전</a></li>
-                        <li><a href="expected-outcomes" style="color: white;">기대효과</a></li>
-                        <li><a href="overview" style="color: white;">개요</a></li>
-                        <li><a href="organization" style="color: white;">조직구성</a></li>
-                        <li></li>
+                        <li><a href="greeting">인사말</a></li>
+                        <li><a href="vision">비전</a></li>
+                        <li><a href="expected-outcomes">기대효과</a></li>
+                        <li><a href="overview">개요</a></li>
+                        <li><a href="organization">조직구성</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="javascript:void(0);">컨센서스 활동</a>
                     <ul class="submenu">
-                        <li><a href="annual-plan" style="color: white;">연간 활동 계획</a></li>
-                        <li><a href="key-topics" style="color: white;">주요 주제</a></li>
-                        <li><a href="key-deliverables" style="color: white;">주요 산출물</a></li>
-                        <li></li>
+                        <li><a href="annual-plan">연간 활동 계획</a></li>
+                        <li><a href="key-topics">주요 주제</a></li>
+                        <li><a href="key-deliverables">주요 산출물</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="javascript:void(0);">컨센서스 소식</a>
                     <ul class="submenu">
-                        
-                        <li><a href="news" style="color: white;">관련기사</a></li>
-                        <li><a href="events" style="color: white;">행사안내</a></li>
-                        <li><a href="media" style="color: white;">사진/영상</a></li>
-                        <li></li>
+                        <li><a href="news">관련기사</a></li>
+                        <li><a href="events">행사안내</a></li>
+                        <li><a href="media">사진/영상</a></li>
                     </ul>
                 </li>
-                <li><a href="membership-form">입회원서</a>
+                <li>
+                    <a href="membership-form">입회원서</a>
                     <ul class="submenu">
-                        <li><a href="membership-form" style="color: white;">입회원서</a></li>
-                        <li></li>
+                        <li><a href="membership-form">입회원서</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
+
+        <!-- 햄버거 메뉴 버튼 -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
+
+    <!-- 모바일 네비게이션 오버레이 -->
+    <div class="mobile-nav-overlay"></div>
+
+    <!-- 모바일 네비게이션 메뉴 -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-header">
+            <img src="public/images/logo_B.svg" alt="로고" style="height: 30px;">
+            <button class="mobile-nav-close">&times;</button>
+        </div>
+        <ul>
+            <li>
+                <a href="javascript:void(0);">
+                    컨센서스 소개
+                    <button class="submenu-toggle">&#9662;</button>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="greeting">인사말</a></li>
+                    <li><a href="vision">비전</a></li>
+                    <li><a href="expected-outcomes">기대효과</a></li>
+                    <li><a href="overview">개요</a></li>
+                    <li><a href="organization">조직구성</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    컨센서스 활동
+                    <button class="submenu-toggle">&#9662;</button>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="annual-plan">연간 활동 계획</a></li>
+                    <li><a href="key-topics">주요 주제</a></li>
+                    <li><a href="key-deliverables">주요 산출물</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    컨센서스 소식
+                    <button class="submenu-toggle">&#9662;</button>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="news">관련기사</a></li>
+                    <li><a href="events">행사안내</a></li>
+                    <li><a href="media">사진/영상</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="membership-form">입회원서</a>
+            </li>
+        </ul>
+    </nav>
     <section>
         <div class="nav_banner">
             <p class="nav_banner_text">입회원서</p>
-            <div class="breadcrumb">홈 <img style="margin: 0 20px;" src="public/images/arrow.svg" alt="arrow"> 입회원서
-
+            <div class="breadcrumb">
+                홈 <img src="public/images/arrow.svg" alt="arrow" class="breadcrumb_arrow"> 입회원서
             </div>
+        </div>
     </section>
 
     <section>
-        <h1 class="head_title">입회원서<br><img src="public/images/Line 18.svg" alt="Line 18" style="margin-top: 16px;">
+        <h1 class="head_title">
+            입회원서<br>
+            <img src="public/images/Line 18.svg" alt="Line 18" class="title_line">
         </h1>
         <div class="content">
-            <h2 class="effect" style="text-align: center;">
-                <img src="poster/따옴1.png" alt="" style="float: left;"><br>
+            <h2 class="effect membership-quote">
+                <img src="poster/따옴1.png" alt="따옴표" class="quote-left">
+                <br>
                 국가의 미래를 위한 <br>현명한 결단으로 함께해 주신 <br>의원님께 깊은 감사를 전합니다.<br>
-                <img src="poster/따옴2.png" style="float: right; margin-top: 30px;" alt="">
+                <img src="poster/따옴2.png" alt="따옴표" class="quote-right">
             </h2>
 
-            <div style="width: 100%;"></div>
+            <div class="membership-spacer"></div>
 
-
-            <div class="box" style="height: 300px; margin-top: 50px; text-align: center; ">
-                <img src="poster/docu_img.png"
-                    style="width: 181px; height: 121px; margin-top: 44px; margin-bottom: 28px;" alt="">
-                <a
-                    href="https://raw.githubusercontent.com/aiforumkoraia/aiforumkoraia.github.io/refs/heads/main/Membership.pdf">
-                    <button class="ripple-btn" style="cursor: pointer;">입회원서 다운로드</button>
+            <div class="box membership-download-box">
+                <img src="poster/docu_img.png" alt="문서 이미지" class="document-image">
+                <a href="https://raw.githubusercontent.com/aiforumkoraia/aiforumkoraia.github.io/refs/heads/main/Membership.pdf">
+                    <button class="ripple-btn">입회원서 다운로드</button>
                 </a>
             </div>
 
-            <script>
-                // .ripple-btn 클래스를 가진 모든 버튼에 대해 파문 효과를 적용
-document.querySelectorAll('.ripple-btn').forEach(button => {
-  button.addEventListener('click', function (e) {
-    // 클릭한 지점 좌표 구하기
-    const rect = this.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    // 파문 요소(span) 동적 생성
-    const ripple = document.createElement('span');
-    ripple.classList.add('ripple-effect');
-    ripple.style.left = x + 'px';
-    ripple.style.top = y + 'px';
-
-    // 버튼 내부에 파문 요소 추가
-    this.appendChild(ripple);
-
-    // 애니메이션이 끝나면 파문 요소 제거
-    setTimeout(() => {
-      ripple.remove();
-    }, 600); // 위에서 duration을 0.6s로 했으니 600ms 후 제거
-  });
-});
-
-            </script>
-
-            <div style="width: 100%; height: 60px;"></div>
+            <div class="membership-spacer-large"></div>
+            
             <div class="email-copy">
                 <div class="copy-button" onclick="copyEmail()">메일 복사</div>
                 <div class="email-address" id="email-text"><strong>brainzoo@koraia.org</strong></div>
             </div>
 
-            <script>
-                function copyEmail() {
-                  // 복사할 이메일 텍스트 가져오기
-                  const email = document.getElementById('email-text').innerText;
-                  // 클립보드에 쓰기
-                  navigator.clipboard.writeText(email).then(() => {
-                    alert('복사되었습니다.');
-                  }).catch(err => {
-                    console.error('복사 실패', err);
-                  });
-                }
-              </script>
+            <div class="membership-spacer"></div>
 
-              <div style="width: 100%;"></div>
-
-              <div class="sign_footer">*작성된 입회 원서를 스캔(촬영)하여 <strong>이메일로 제출</strong>해 주시기 바랍니다.</div>
-
-
+            <div class="sign_footer">
+                *작성된 입회 원서를 스캔(촬영)하여 <strong>이메일로 제출</strong>해 주시기 바랍니다.
+            </div>
         </div>
-
     </section>
 
     <footer>
         <div class="footer">
             <div class="footer_logo">
-                <img src="public/images/logo_B.svg" alt="">
-                <img src="public/images/to_top_btn.svg" alt="">
-
+                <img src="public/images/logo_B.svg" alt="로고">
+                <img src="public/images/to_top_btn.svg" alt="맨 위로" class="to-top-btn">
             </div>
             <div class="footer_text">
                 <p>서울특별시 마포구 백범로 88 (대흥동) 경총회관 3층<br>
                     T. 02-713-4800・F. 02-6971-8901・E-mail. info@koraia.org</p>
             </div>
-
-            <hr style="background: #011131; height: 0.3px;">
+            <hr class="footer-divider">
             <div class="footer_copylight">ⓒ 2025 AI Policy Forum, All Rights Reserved.</div>
-
+        </div>
     </footer>
 
-    <script>
-        document.querySelector('.footer_logo img:last-child').addEventListener('click', function () {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
+    <script src="js/common.js"></script>
+    <script src="js/mobile-nav.js"></script>
 </body>
 
 </html>

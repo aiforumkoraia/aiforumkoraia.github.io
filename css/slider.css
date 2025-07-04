@@ -1,0 +1,168 @@
+/* Slider styles for main page */
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    top: 0;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+.slide.active {
+    left: 0;
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-content {
+    position: absolute;
+    top: 60%;
+    left: 43%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    font-family: SUIT !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: 24px !important;
+}
+
+.slide-content h2 {
+    color: #fff;
+    font-family: "S-Core Dream";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px;
+}
+
+.slide-content p {
+    color: #fff;
+    font-family: SUIT;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.btn {
+    display: flex;
+    width: 320px;
+    height: 60px;
+    padding: 10px 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid #44cbe4;
+    background-color: transparent;
+    color: #44cbe4;
+    text-align: center;
+    font-family: SUIT;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #44cbe4;
+    color: #fff !important;
+}
+
+.hover-bar {
+    width: 100px;
+    height: 5px;
+    background: #44cbe4;
+    border-radius: 5px;
+    margin: 1px auto;
+    opacity: 0;
+    transition: opacity 0.5s ease, width 0.5s ease;
+}
+
+.m3:hover .hover-bar {
+    opacity: 1;
+    width: 50%;
+}
+
+/* Header styles for main page */
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.header.hide {
+    transform: translateY(-100%);
+}
+
+.header:hover {
+    background-color: white;
+}
+
+.header:hover .nav ul li a {
+    color: black;
+}
+
+.header:hover .logo a img {
+    content: url('../poster/logo_white_edtion.svg');
+}
+
+.nav ul li a {
+    color: white;
+}
+
+header nav ul li a:hover {
+    color: #3b59e2 !important;
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 768px) {
+    .cards-wrapper {
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+    }
+    
+    .slide-content {
+        left: 50%;
+        top: 50%;
+        width: 90%;
+    }
+    
+    .slide-content h2 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    
+    .btn {
+        width: 250px;
+        height: 50px;
+        font-size: 20px;
+        line-height: 50px;
+    }
+} 
