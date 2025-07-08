@@ -13,6 +13,7 @@
     <link rel="icon" href="https://koraia.org/default/img/symbol.ico">
     <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/responsive-header.css" />
 </head>
 
 <body>
@@ -61,7 +62,66 @@
                 </li>
             </ul>
         </nav>
+        
+        <!-- 햄버거 메뉴 버튼 -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
+
+    <!-- 모바일 네비게이션 오버레이 -->
+    <div class="mobile-nav-overlay"></div>
+
+    <!-- 모바일 네비게이션 메뉴 -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-header">
+            <img src="public/images/logo_B.svg" alt="한국인공지능정책컨센서스 로고" style="height: 30px;">
+            <button class="mobile-nav-close">&times;</button>
+        </div>
+        <ul>
+            <li>
+                <a href="javascript:void(0);">
+                    컨센서스 소개
+                    <button class="submenu-toggle">&#9662;</button>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="greeting">인사말</a></li>
+                    <li><a href="vision">비전</a></li>
+                    <li><a href="expected-outcomes">기대효과</a></li>
+                    <li><a href="overview">개요</a></li>
+                    <li><a href="organization">조직구성</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    컨센서스 활동
+                    <button class="submenu-toggle">&#9662;</button>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="annual-plan">연간 활동 계획</a></li>
+                    <li><a href="key-topics">주요 주제</a></li>
+                    <li><a href="key-deliverables">주요 산출물</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    컨센서스 소식
+                    <button class="submenu-toggle">&#9662;</button>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="news">관련기사</a></li>
+                    <li><a href="events">행사안내</a></li>
+                    <li><a href="media">사진/영상</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="membership-form">입회원서</a>
+            </li>
+        </ul>
+    </nav>
+
     <section>
         <div class="nav_banner">
             <p class="nav_banner_text">컨센서스 소개</p>
@@ -127,6 +187,8 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
+    <script src="js/common.js"></script>
+    <script src="js/mobile-nav.js"></script>
 </body>
 
 </html>

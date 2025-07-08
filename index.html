@@ -307,80 +307,163 @@
     .modal {
         display: none;
         position: fixed;
-        z-index: 100;
+        z-index: 1000;
         left: 0;
         top: 0;
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, 0.8);
         justify-content: center;
         align-items: center;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(15px);
     }
 
     .modal-content {
-        background: linear-gradient(135deg, #ffffff, #f8f9fa);
-        padding: 30px;
-        border-radius: 12px;
-        max-width: 600px;
-        width: 90%;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        background: #ffffff;
+        padding: 0;
+        border-radius: 0;
+        max-width: 800px;
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         text-align: left;
-        animation: fadeIn 0.3s ease-in-out;
+        animation: slideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border: 1px solid #e0e0e0;
     }
 
-    @keyframes fadeIn {
+    @keyframes slideIn {
         from {
             opacity: 0;
-            transform: scale(0.9);
+            transform: translateY(30px) scale(0.95);
         }
         to {
             opacity: 1;
-            transform: scale(1);
+            transform: translateY(0) scale(1);
         }
     }
 
-    .modal-content h2 {
-        margin: 0 0 16px;
-        font-size: 28px;
-        font-weight: bold;
-        color: #333;
+    .modal-header {
+        background: #f8f9fa;
+        padding: 30px 40px 20px;
+        border-bottom: 2px solid #e9ecef;
+        position: relative;
     }
 
-    .modal-content p {
-        margin: 0 0 20px;
+    .modal-header h2 {
+        margin: 0;
+        font-size: 32px;
+        font-weight: 700;
+        color: #1a1a1a;
+        line-height: 1.3;
+        letter-spacing: -0.5px;
+    }
+
+    .modal-meta {
+        margin-top: 12px;
+        font-size: 14px;
+        color: #6c757d;
+        font-weight: 500;
+    }
+
+    .modal-body {
+        padding: 40px;
         line-height: 1.8;
-        color: #555;
+        color: #2c3e50;
+        font-size: 16px;
+    }
+
+    .modal-body p {
+        margin: 0 0 24px;
+        line-height: 1.8;
+        color: #2c3e50;
+    }
+
+    .modal-body p:last-child {
+        margin-bottom: 0;
+    }
+
+    .modal-footer {
+        padding: 20px 40px 30px;
+        border-top: 1px solid #e9ecef;
+        background: #f8f9fa;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .modal-content a {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 10px 20px;
-        background-color: #007BFF;
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 24px;
+        background-color: #1a1a1a;
         color: #fff;
         text-decoration: none;
-        border-radius: 6px;
-        transition: background-color 0.3s;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        border: 2px solid #1a1a1a;
     }
 
     .modal-content a:hover {
-        background-color: #0056b3;
+        background-color: #fff;
+        color: #1a1a1a;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(26, 26, 26, 0.2);
     }
 
     .modal-close {
-        display: block;
-        text-align: right;
-        margin-top: 20px;
-        font-size: 16px;
-        color: #007BFF;
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        background: transparent;
+        border: 1px solid #dee2e6;
+        color: #6c757d;
         cursor: pointer;
-        transition: color 0.3s;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 4px;
     }
 
     .modal-close:hover {
-        color: #0056b3;
+        background-color: #f8f9fa;
+        color: #1a1a1a;
+        border-color: #adb5bd;
+    }
+
+    @media (max-width: 768px) {
+        .modal-content {
+            width: 100%;
+            max-height: 100vh;
+            border-radius: 0;
+        }
+        
+        .modal-header {
+            padding: 20px 24px 16px;
+        }
+        
+        .modal-header h2 {
+            font-size: 24px;
+        }
+        
+        .modal-body {
+            padding: 24px;
+            font-size: 15px;
+        }
+        
+        .modal-footer {
+            padding: 16px 24px 20px;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .modal-content a,
+        .modal-close {
+            width: 100%;
+            justify-content: center;
+        }
     }
 </style>
 
@@ -420,17 +503,44 @@
         const modal = document.querySelector('.modal');
         const modalContent = modal.querySelector('.modal-content');
 
+        const uploadDate = new Date(notice.upload_date).toLocaleDateString('ko-KR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
         modalContent.innerHTML = `
-            <h2>${notice.title}</h2>
-            <p>${notice.content.replace(/\n/g, '<br>')}</p>
-            ${notice.file_path ? `<a href="https://we.koraia.org:5001/static/uploads/${notice.file_path}" target="_blank">첨부파일 다운로드</a>` : ''}
-            <span class="modal-close">닫기</span>
+            <div class="modal-header">
+                <h2>${notice.title}</h2>
+                <div class="modal-meta">작성일: ${uploadDate}</div>
+            </div>
+            <div class="modal-body">
+                ${notice.content.replace(/\n/g, '<br>')}
+            </div>
+            <div class="modal-footer">
+                ${notice.file_path ? `<a href="https://we.koraia.org:5001/static/uploads/${notice.file_path}" target="_blank">📎 첨부파일 다운로드</a>` : '<div></div>'}
+                <span class="modal-close">✕ 닫기</span>
+            </div>
         `;
 
         modal.style.display = 'flex';
 
         modal.querySelector('.modal-close').addEventListener('click', () => {
             modal.style.display = 'none';
+        });
+
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            }
+        });
+
+        // 모달 외부 클릭시 닫기
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
         });
     }
 

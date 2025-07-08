@@ -11,6 +11,7 @@
     <link rel="icon" href="https://koraia.org/default/img/symbol.ico">
     <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/responsive-header.css" />
 </head>
 
 <body>
@@ -59,7 +60,66 @@
                 </li>
             </ul>
         </nav>
+        
+        <!-- 햄버거 메뉴 버튼 -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
+
+    <!-- 모바일 네비게이션 오버레이 -->
+    <div class="mobile-nav-overlay"></div>
+
+    <!-- 모바일 네비게이션 메뉴 -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-header">
+            <img src="public/images/logo_B.svg" alt="한국인공지능정책컨센서스 로고" style="height: 30px;">
+            <button class="mobile-nav-close">&times;</button>
+        </div>
+        <ul>
+            <li>
+                <a href="javascript:void(0);">
+                    컨센서스 소개
+                    <button class="submenu-toggle">&#9662;</button>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="greeting">인사말</a></li>
+                    <li><a href="vision">비전</a></li>
+                    <li><a href="expected-outcomes">기대효과</a></li>
+                    <li><a href="overview">개요</a></li>
+                    <li><a href="organization">조직구성</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    컨센서스 활동
+                    <button class="submenu-toggle">&#9662;</button>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="annual-plan">연간 활동 계획</a></li>
+                    <li><a href="key-topics">주요 주제</a></li>
+                    <li><a href="key-deliverables">주요 산출물</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    컨센서스 소식
+                    <button class="submenu-toggle">&#9662;</button>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="news">관련기사</a></li>
+                    <li><a href="events">행사안내</a></li>
+                    <li><a href="media">사진/영상</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="membership-form">입회원서</a>
+            </li>
+        </ul>
+    </nav>
+
     <section>
         <div class="nav_banner">
             <p class="nav_banner_text">컨센서스 소개</p>
@@ -86,11 +146,11 @@
                 </h2>
             </div>
             <div class="right-side">
-                우리는 <strong>10개의 전문 분과</strong>운영하여 AI 국가 전략, 경제 혁명, 안보, 윤리, 인재 양성 등 다양한 분야에서 장기적이고 실효성 있는 정책을 연구하고 제안할 것입니다.<br>
-                특히, <strong>연간 AI 정책 백서 포럼 활동</strong>의 결정체로서, 국회의원님들의 입법 활동과 정부의 정책 수립에 귀중한 자료로 활용될 것입니다.<br>
+                우리는 <strong>10개의 전문 분과</strong>운영하여 AI 국가 전략, 경제 혁명, 안보, 윤리, 인재 양성 등 다양한 분야에서 장기적이고 실효성 있는 정책을 연구하고 제안할 것입니다.<br>
+                특히, <strong>연간 AI 정책 백서 포럼 활동</strong>의 결정체로서, 국회의원님들의 입법 활동과 정부의 정책 수립에 귀중한 자료로 활용될 것입니다.<br>
                 <br>
-                이 백서는 단순한 보고서를 넘어, <strong>대한민국 AI 정책의 로드맵</strong> 제시하는 핵심 문서가 될 것입니다. 국회의원님들의 통찰력 있는 의견과 정책적 경험이 이 백서의 가치를 더욱 높일 것입니다.
-                존경하는 의원님들의 <strong>적극적인 참여</strong>야말로 이 포럼의 성공과 지속가능성을 위한 핵심 요소입니다.<br>
+                이 백서는 단순한 보고서를 넘어, <strong>대한민국 AI 정책의 로드맵</strong> 제시하는 핵심 문서가 될 것입니다. 국회의원님들의 통찰력 있는 의견과 정책적 경험이 이 백서의 가치를 더욱 높일 것입니다.
+                존경하는 의원님들의 <strong>적극적인 참여</strong>야말로 이 포럼의 성공과 지속가능성을 위한 핵심 요소입니다.<br>
                 <br>
                 여러분의 풍부한 입법 경험과 정책적 통찰력이 AI 시대 대한민국의 미래를 밝게 할 것입니다.</div>
         </div>
@@ -119,6 +179,8 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
+    <script src="js/common.js"></script>
+    <script src="js/mobile-nav.js"></script>
 </body>
 
 </html>
