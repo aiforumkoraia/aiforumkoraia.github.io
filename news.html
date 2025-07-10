@@ -53,6 +53,20 @@
             font-size: 14px;
         }
 
+        .gallery-title {
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Show only 2 lines */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            line-clamp: 2; /* Standard property for compatibility */
+            max-height: 3.4em; /* 2 lines with line-height: 1.7em */
+        }
+
+
+
+
         .gallery-text p {
             margin: 0;
             line-height: 1.7em;
@@ -274,9 +288,9 @@
                         galleryItem.innerHTML = `
                             <img src="${articleImage}" alt="${article.title}" class="gallery-img">
                             <div class="gallery-text">
-                                <p><strong>${article.title}</strong></p>
+                                <p class="gallery-title"><strong>${article.title}</strong></p>
                                 <small style="color: gray;">${new Date(article.upload_date).toLocaleDateString()}</small>
-                                ${article.article_link ? '<br><small style="color: #007BFF;">외부 링크로 이동 ↗</small>' : ''}
+                                ${article.article_link ? '<br>' : ''}
                             </div>
                         `;
 
