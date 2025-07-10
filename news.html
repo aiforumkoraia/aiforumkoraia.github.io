@@ -276,11 +276,16 @@
                             <div class="gallery-text">
                                 <p><strong>${article.title}</strong></p>
                                 <small style="color: gray;">${new Date(article.upload_date).toLocaleDateString()}</small>
+                                ${article.article_link ? '<br><small style="color: #007BFF;">외부 링크로 이동 ↗</small>' : ''}
                             </div>
                         `;
 
                         galleryItem.addEventListener('click', () => {
-                            showModal(article);
+                            if (article.article_link) {
+                                window.open(article.article_link, '_blank');
+                            } else {
+                                showModal(article);
+                            }
                         });
 
                         gallery.appendChild(galleryItem);
@@ -302,8 +307,9 @@
             modalContent.innerHTML = `
                 <img src="${articleImage}" alt="${article.title}">
                 <h2>${article.title}</h2>
-                <p>${article.content}</p>
+                ${article.content ? `<p>${article.content}</p>` : '<p>기사 내용이 없습니다.</p>'}
                 <small style="color: gray;">${new Date(article.upload_date).toLocaleDateString()}</small>
+                ${article.article_link ? `<br><a href="${article.article_link}" target="_blank" style="color: #007BFF; text-decoration: none; margin-top: 10px; display: inline-block;">기사 원문 보기 ↗</a>` : ''}
                 <span class="modal-close">닫기</span>
             `;
 
