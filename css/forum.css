@@ -10,6 +10,38 @@ body {
     position: relative;
     overflow-x: hidden;
     font-family: "SUIT Variable", sans-serif;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 /* Background Layers */
@@ -59,6 +91,7 @@ body::after {
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 60px;
+    animation: slideInLeft 0.8s ease-out 0.3s both;
 }
 
 /* Navigation Menu Container */
@@ -73,6 +106,7 @@ body::after {
     font-weight: 800;
     line-height: 1.4;
     text-transform: uppercase;
+    animation: slideInUp 0.8s ease-out 0.6s both;
 }
 
 /* Navigation Menu Items */
@@ -84,10 +118,11 @@ body::after {
     padding: 20px 0;
     border-top: 3px solid #1699D0;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     text-decoration: none;
     display: block;
+    transform: translateY(0);
 }
 
 .msg::after {
@@ -99,18 +134,21 @@ body::after {
     font-size: 20px;
     color: #0E6F98;
     opacity: 0.7;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .msg:hover {
     color: #48D1CC;
     border-top-color: #48D1CC;
+    transform: translateY(-3px);
+    text-shadow: 0 2px 8px rgba(72, 209, 204, 0.3);
 }
 
 .msg:hover::after {
     right: -10px;
     color: #48D1CC;
     opacity: 1;
+    transform: translateY(-50%) scale(1.2);
 }
 
 /* Mobile Responsive Styles */
@@ -121,6 +159,14 @@ body::after {
         padding: 40px 20px;
         justify-content: flex-start;
         align-items: stretch;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        height: auto;
+        min-height: calc(100vh - 80px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     }
     
     .main_message {
@@ -156,6 +202,12 @@ body::after {
         margin-left: 16px;
         margin-right: 16px;
         padding: 32px 16px;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(12px);
+        border-radius: 16px;
+        margin-top: 32px;
+        margin-bottom: 32px;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
     }
     
     .main_message {
@@ -183,6 +235,15 @@ body::after {
 }
 
 @media screen and (max-width: 320px) {
+    .outer {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(14px);
+        border-radius: 12px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    
     .main_message {
         font-size: 28px;
         margin-bottom: 24px;
