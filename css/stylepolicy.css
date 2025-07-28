@@ -1,0 +1,375 @@
+.wrapper {
+    display: flex;
+    height: 340px;
+    max-width: 1100px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 56px;
+    align-self: stretch;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.policy-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 200px;
+    min-width: 150px;
+}
+
+.policy-item img {
+    width: 84px;
+    height: 84px;
+    aspect-ratio: 1/1;
+}
+
+.policy_text h2 {
+    color: #15D1E9;
+    font-family: "SUIT Variable";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 140%;
+    text-transform: uppercase;
+}
+
+.policy_text h2+p {
+    color: #1699D0;
+    font-family: "SUIT Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 140%;
+}
+
+.backgroundimg {
+    right: 0;
+    top: 410px;
+    position: absolute;
+    width: 50%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    right: 0;
+    padding-left: 24px;
+    padding-right: 24px;
+    top: 280px;
+    position: relative;
+}
+
+.purpose-section {
+    margin-top: 60px;
+}
+
+.purpose-title {
+    color: #1E1E1E;
+    font-family: "SUIT Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 160%;
+    width: 300px;
+}
+
+.purpose-container {
+    padding-left: 120px;
+    display: flex;
+    gap: 96px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.purpose-item {
+    display: flex;
+    width: 400px;
+    max-width: 500px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    min-width: 300px;
+}
+
+.purpose-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.purpose-content {
+    color: #333;
+    font-family: "SUIT Variable";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    text-align: center;
+}
+
+.rnd-section {
+    width: 100%;
+    max-width: 1000px;
+    position: relative;
+    height: 600px;
+}
+
+.rnd-section .content {
+    color: #1E1E1E;
+    font-family: "SUIT Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    margin-top: 53px;
+    width: 370px;
+    position: absolute;
+    z-index: 2;
+}
+
+.rnd-section .content:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+
+.rnd-section .content:nth-child(2) {
+    color: #1E1E1E;
+    font-family: "SUIT Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 160%;
+    width: 370px;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    z-index: 2;
+}
+
+.rnd-section .content:nth-child(4) {
+    color: #1E1E1E;
+    font-family: "SUIT Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    width: 370px;
+    position: absolute;
+    top: 400px;
+    right: 0;
+    text-align: right;
+    z-index: 2;
+}
+
+.center-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+    max-width: 800px;
+}
+
+.center-image img {
+    width: 100%;
+    height: auto;
+    opacity: 0.9;
+}
+
+/* 태블릿 반응형 */
+@media (max-width: 768px) {
+    .wrapper {
+        height: auto;
+        gap: 40px;
+        padding: 0 15px;
+    }
+    
+    .row {
+        justify-content: center;
+        gap: 30px;
+    }
+    
+    .policy-item {
+        width: 150px;
+    }
+    
+    .policy_text h2 {
+        font-size: 36px;
+    }
+    
+    .policy_text h2+p {
+        font-size: 20px;
+    }
+    
+    .wrap {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .purpose-container {
+        padding-left: 60px;
+        gap: 50px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .purpose-item {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .rnd-section {
+        height: auto;
+        min-height: 600px;
+    }
+    
+    .rnd-section .content {
+        width: 300px;
+        font-size: 18px;
+    }
+    
+    .rnd-section .content:nth-child(2) {
+        width: 300px;
+        font-size: 18px;
+    }
+    
+    .rnd-section .content:nth-child(4) {
+        width: 300px;
+        font-size: 18px;
+    }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 480px) {
+    .wrapper {
+        height: auto;
+        gap: 30px;
+        padding: 0 10px;
+    }
+    
+    .row {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: nowrap;
+    }
+    
+    .policy-item {
+        width: calc(50% - 10px);
+        min-width: 120px;
+        max-width: 150px;
+    }
+    
+    .policy-item img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .policy-text {
+        color: #1699D0;
+        text-align: center;
+        font-family: "SUIT Variable";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 140%;
+    }
+    
+    .policy_text h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+    
+    .policy_text h2+p {
+        font-size: 18px;
+        text-align: center;
+    }
+    
+    .wrap {
+        padding-left: 10px;
+        padding-right: 10px;
+        top: 200px;
+    }
+    
+    .purpose-container {
+        padding-left: 20px;
+        gap: 30px;
+    }
+    
+    .purpose-title {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .purpose-item {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .rnd-section {
+        height: auto;
+        position: static;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px 0;
+    }
+    
+    .rnd-section .content {
+        position: static;
+        width: 100%;
+        text-align: left;
+        margin-top: 0;
+        font-size: 16px;
+    }
+    
+    .rnd-section .content:nth-child(1) {
+        order: 1;
+    }
+    
+    .rnd-section .content:nth-child(2) {
+        order: 2;
+        width: 100%;
+        font-size: 16px;
+    }
+    
+    .rnd-section .content:nth-child(4) {
+        order: 4;
+        width: 100%;
+        text-align: left;
+        font-size: 16px;
+    }
+    
+    .center-image {
+        position: static;
+        order: 3;
+        transform: none;
+        width: 100%;
+        max-width: 300px;
+        margin: 20px auto;
+    }
+    
+    .backgroundimg {
+        display: none;
+    }
+}
+

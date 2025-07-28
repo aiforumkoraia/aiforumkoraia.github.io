@@ -1,0 +1,222 @@
+.sub_hi {
+    color: #1699D0;
+    text-align: center;
+    font-family: "SUIT Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 140%;
+    /* 33.6px */
+}
+
+.partnership-circles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #00d4ff, #00b8e6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 212, 255, 0.3);
+}
+
+.circle-text {
+    line-height: 1.4;
+}
+
+.plus-icon {
+    font-size: 36px;
+    font-weight: bold;
+    color: #00d4ff;
+    margin: 0 10px;
+}
+
+.governance-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.governance-title {
+    color: #00d4ff;
+    font-family: "SUIT Variable";
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 60px;
+    text-align: left;
+}
+
+.governance-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.governance-category {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.category-header {
+    background: #00d4ff;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin: -30px -30px 25px -30px;
+    font-family: "SUIT Variable";
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.category-item {
+    display: flex;
+    margin-bottom: 15px;
+    font-family: "SUIT Variable";
+    /* font-size: 16px; */
+    font-weight: 500;
+    color: #1E1E1E;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    /* 32px */
+}
+
+.category-item:last-child {
+    margin-bottom: 0;
+}
+
+.item-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 15px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.government-icon {
+    background: #003f7f;
+    color: white;
+}
+
+.science-icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.science-item {
+    display: flex;
+    margin-bottom: 30px;
+    flex-direction: column;
+    align-items: center;
+    color: #1E1E1E;
+    text-align: center;
+    font-family: "SUIT Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    /* 32px */
+}
+
+.science-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.industry-items,
+.legal-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.government-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.government-item {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 15px;
+    /* background: #f8f9fa; */
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.government-item:hover {
+    transform: translateY(-2px);
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
+}
+
+.ministry-logo {
+    max-width: 100%;
+    max-height: 60px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .partnership-circles {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .plus-icon {
+        transform: rotate(90deg);
+        margin: 0;
+    }
+
+    .circle {
+        width: 180px;
+        height: 180px;
+        font-size: 16px;
+    }
+
+    .governance-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .governance-title {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .science-icons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .government-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}

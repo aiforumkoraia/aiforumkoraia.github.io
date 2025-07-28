@@ -1,0 +1,1531 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+/* 네비게이션 바 스타일 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    background: rgba(255, 255, 255, 0.56);
+    backdrop-filter: blur(4px);
+}
+
+.greeting_hi {
+    margin-top: 451px;
+    text-align: center;
+    color: #15D1E9;
+    text-align: center;
+    font-family: "SUIT Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.big_hi {
+    color: #15D1E9;
+    text-align: center;
+    font-family: "SUIT Variable";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 140%;
+    /* 67.2px */
+    text-transform: uppercase;
+    margin-top: 64px;
+    margin-bottom: 32px;
+}
+
+.hi_content {
+    margin: 0 auto;
+    display: block;
+    text-align: left;
+    padding: 0 26px;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.56);
+    backdrop-filter: blur(4px);
+    max-width: 1030px;
+    text-align: left;
+    background-color: white;
+    z-index: 10;
+}
+
+.hi_content p {
+    color: #0E6F98;
+    /* H3 */
+    font-family: "SUIT Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 140%;
+    /* 33.6px */
+    text-transform: uppercase;
+}
+
+.hi_content p+p {
+    color: #1E1E1E;
+
+    /* Body 1 */
+    font-family: "SUIT Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    margin-bottom: 12px;
+    /* 32px */
+}
+
+.hi_content li {
+    color: #1E1E1E;
+
+    /* Body 1 */
+    font-family: "SUIT Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    /* 32px */
+}
+
+.signature p:first-child {
+    color: #0E6F98;
+    font-family: "SUIT Variable";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    /* 33.6px */
+    /* letter-spacing: 12px; */
+    margin-top: 32px;
+}
+
+
+.signature p:last-child {
+    color: #0E6F98;
+    font-family: "SUIT Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 140%;
+    /* 33.6px */
+    letter-spacing: 12px;
+    margin-top: 16px;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 20px;
+
+}
+
+.logo a {
+    color: #0E6F98;
+    font-family: "SUIT Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    height: 22px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-left: 40px;
+}
+
+
+.nav-link {
+    color: #0E6F98;
+
+    /* H4 */
+    font-family: "SUIT Variable";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.clicked .nav-link {
+    color: #15D1E9;
+
+    /* H4 */
+    font-family: "SUIT Variable";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -8px;
+    left: 50%;
+    background: linear-gradient(90deg, #15D1E9, #2c5aa0);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 1px;
+}
+
+.nav-link:hover {
+    color: #2c5aa0;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.clicked .nav-link::after {
+    width: 0;
+    background: linear-gradient(90deg, #15D1E9, #8DEDD0);
+}
+
+.clicked .nav-link:hover::after {
+    width: 100%;
+    background: linear-gradient(90deg, #15D1E9, #8DEDD0);
+}
+
+/* 기존 헤더 스타일 수정 */
+header {
+    margin-top: 70px;
+    /* 네비게이션 바 높이만큼 여백 추가 */
+}
+
+/* 햄버거 메뉴 스타일 */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #0E6F98;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* 모바일 반응형 디자인 */
+@media screen and (max-width: 850px) {
+    .navbar {
+        background: white;
+        backdrop-filter: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+        padding: 0 20px;
+        position: relative;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 100px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 15px 0;
+    }
+
+    .nav-link {
+        font-size: 18px;
+        display: block;
+        padding: 10px;
+    }
+
+    /* 햄버거 메뉴 애니메이션 */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* 인사말 섹션 모바일 조정 */
+    .greeting_hi {
+        margin-top: 120px;
+        padding: 0 20px;
+        font-size: 16px;
+    }
+
+    .big_hi {
+        font-size: 32px;
+        margin-top: 40px;
+        margin-bottom: 24px;
+    }
+
+    .hi_content {
+        padding: 20px;
+        max-width: 100%;
+        margin: 0 20px;
+    }
+
+    .hi_content p {
+        font-size: 18px;
+        line-height: 140%;
+    }
+
+    .hi_content p+p {
+        font-size: 16px;
+        line-height: 150%;
+        margin-bottom: 16px;
+    }
+
+    .hi_content li {
+        font-size: 16px;
+        line-height: 150%;
+    }
+
+    .signature p:first-child {
+        font-size: 16px;
+        margin-top: 24px;
+    }
+
+    .signature p:last-child {
+        font-size: 20px;
+        margin-top: 12px;
+        letter-spacing: 8px;
+    }
+
+    /* 원형 섹션 모바일 조정 */
+    .circle-with-text {
+        width: 300px;
+        height: 300px;
+        top: 1200px;
+    }
+
+    .circle-content {
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .circle-content h3 {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .circle-content p {
+        font-size: 16px;
+        line-height: 140%;
+        padding: 0 20px;
+    }
+
+    /* 미션 섹션 모바일 조정 */
+    .mission {
+        top: 1000px;
+        padding: 0 20px;
+    }
+
+    .mission-title {
+        font-size: 32px;
+        margin-bottom: 60px;
+    }
+
+    .mission-item {
+        width: 100% !important;
+        left: 0 !important;
+        padding-left: 0px;
+        margin-bottom: 80px;
+        position: relative;
+        text-align: center;
+    }
+
+    .mission-item h3 {
+        font-size: 20px;
+        line-height: 130%;
+        margin-bottom: 12px;
+    }
+
+    .mission-item p {
+        font-size: 16px;
+        line-height: 150%;
+        text-align: left;
+        padding: 0 20px;
+    }
+
+    /* 미션 아이템 아이콘 모바일에서 상단에 배치 */
+    .mission-item:nth-child(1)::before {
+        width: 80px;
+        height: 80px;
+        left: 19%;
+        top: -120px;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    .mission-item:nth-child(1)::after {
+        width: 60px;
+        height: 60px;
+        right: 20px;
+        top: -60px;
+        transform: none;
+    }
+
+    .mission-item:nth-child(2)::before {
+        width: 180px;
+        height: 150px;
+        left: 19%;
+        top: -200px;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    .mission-item:nth-child(3)::before {
+        width: 100px;
+        height: 100px;
+        left: 12%;
+        top: -140px;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    .mission-item:nth-child(4)::before {
+        width: 80px;
+        height: 80px;
+        left: 12%;
+        top: -120px;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    /* 히스토리 섹션 모바일 조정 */
+    .history {
+        top: 300px;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    /* 배경 라인 모바일에서 중앙만 유지 */
+    .backgroundline .line-1,
+    .backgroundline .line-2,
+    .backgroundline .line-3,
+    .backgroundline .line-4,
+    .backgroundline .line-6,
+    .backgroundline .line-7,
+    .backgroundline .line-8,
+    .backgroundline .line-9 {
+        display: none;
+    }
+
+    /* 중앙 라인만 유지하고 조정 */
+    .line-5 {
+        height: 1000px;
+        left: 50%;
+    }
+
+    .line-10 {
+        top: 1100px;
+        height: 1000px;
+        left: 50%;
+    }
+
+    .line-11 {
+        height: 300px;
+        left: 50%;
+    }
+}
+
+/* 작은 모바일 디바이스 (480px 이하) */
+@media screen and (max-width: 480px) {
+    .greeting_hi {
+        margin-top: 100px;
+        font-size: 14px;
+    }
+
+    .big_hi {
+        font-size: 28px;
+        margin-top: 32px;
+        margin-bottom: 20px;
+    }
+
+    .hi_content {
+        margin: 0 10px;
+        padding: 15px;
+    }
+
+    .hi_content p {
+        font-size: 16px;
+    }
+
+    .hi_content p+p {
+        font-size: 14px;
+    }
+
+    .hi_content li {
+        font-size: 14px;
+    }
+
+    .circle-with-text {
+        width: 250px;
+        height: 250px;
+        top: 1100px;
+    }
+
+    .circle-content h3 {
+        font-size: 20px;
+    }
+
+    .circle-content p {
+        font-size: 14px;
+        padding: 0 15px;
+    }
+
+    .mission {
+        top: 900px;
+        padding: 0 15px;
+    }
+
+    .mission-title {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .mission-item {
+        padding-left: 0px;
+        margin-bottom: 70px;
+    }
+
+    .mission-item h3 {
+        font-size: 18px;
+    }
+
+    .mission-item p {
+        font-size: 14px;
+        padding: 0 15px;
+    }
+
+    /* 작은 화면에서 아이콘 크기 조정 */
+    .mission-item:nth-child(1)::before {
+        width: 60px;
+        height: 60px;
+        top: -100px;
+    }
+
+    .mission-item:nth-child(1)::after {
+        width: 40px;
+        height: 40px;
+        top: -50px;
+        right: 15px;
+    }
+
+    .mission-item:nth-child(2)::before {
+        width: 140px;
+        height: 120px;
+        top: -160px;
+    }
+
+    .mission-item:nth-child(3)::before {
+        width: 80px;
+        height: 80px;
+        top: -110px;
+    }
+
+    .mission-item:nth-child(4)::before {
+        width: 60px;
+        height: 60px;
+        top: -100px;
+    }
+
+    .history {
+        top: 250px;
+    }
+}
+
+/* 태블릿 반응형 (769px ~ 1024px) - 기존 유지 */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .greeting_hi {
+        margin-top: 200px;
+        padding: 0 40px;
+    }
+
+    .hi_content {
+        padding: 0 40px;
+        max-width: 900px;
+    }
+
+    .circle-with-text {
+        width: 450px;
+        height: 450px;
+        top: 1600px;
+    }
+
+    .circle-content h3 {
+        font-size: 36px;
+    }
+
+    .circle-content p {
+        font-size: 20px;
+    }
+
+    .mission {
+        top: 1350px;
+        padding: 0 40px;
+    }
+
+    .mission_item {
+        width: 500px !important;
+        padding-left: 120px;
+    }
+
+    .mission-item:nth-child(2) {
+        left: 0 !important;
+    }
+
+    .mission-item:nth-child(3) {
+        left: 20% !important;
+    }
+
+    .mission-item:nth-child(4) {
+        left: 0 !important;
+    }
+}
+
+.line-1 {
+    left: 10%;
+    width: 2px;
+    top: 0;
+    height: 1295px;
+    background: linear-gradient(180deg, #D0F6FB 0%, #FFF 100%);
+    position: absolute;
+    z-index: -1;
+}
+
+/* line-1에 도트 추가 */
+.line-1::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 200px;
+    /* 첫 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%238EE9F4"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-1::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 600px;
+    /* 두 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%238EE9F4"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-2 {
+    position: absolute;
+    width: 2px;
+    left: 20%;
+    top: 0;
+    height: 1589px;
+    background: linear-gradient(180deg, #94EBEB 0%, #DCFFBF 47.6%, #FFF 100%);
+    z-index: -1;
+}
+
+/* line-2에 도트 추가 */
+.line-2::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 300px;
+    /* 첫 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%238DEDD0"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-2::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 800px;
+    /* 두 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%238DEDD0"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-3 {
+    left: 30%;
+    width: 2px;
+    top: 0;
+    height: 1471px;
+    background: linear-gradient(180deg, #E8F8FF 0%, #FFF 100%);
+    position: absolute;
+    z-index: -1;
+}
+
+
+.line-3::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 520px;
+    /* 첫 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%23EDFAFF"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-3::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 800px;
+    /* 두 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%23EDFAFF"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-4 {
+    left: 40%;
+    width: 2px;
+    top: 0;
+    height: 996px;
+    background: linear-gradient(180deg, #B3F0F8 0%, #FFF 100%);
+    position: absolute;
+    z-index: -1;
+}
+
+.line-4::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 420px;
+    /* 첫 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%23C7F4FA"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-4::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 900px;
+    /* 두 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%23C7F4FA"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-5 {
+    left: 50%;
+    width: 2px;
+    top: 0;
+    height: 421px;
+    background: linear-gradient(180deg, #15D1E9 100%, #FFF 100%);
+    position: absolute;
+    z-index: -1;
+}
+
+.line-5::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 420px;
+    /* 두 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%2315D1E9"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-6 {
+    left: 60%;
+    width: 2px;
+    top: 0;
+    height: 542px;
+    background: linear-gradient(180deg, #CEF5F8 0%, #FFF 100%);
+    position: absolute;
+    z-index: -1;
+}
+
+.line-6::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 120px;
+    /* 첫 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%23C7F4FA"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-6::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 540px;
+    /* 두 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%23C7F4FA"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-7 {
+    left: 70%;
+    width: 2px;
+    top: 0;
+    height: 942px;
+    z-index: -1;
+    background: linear-gradient(180deg, #8BEFF1 0%, #FFF 100%);
+    position: absolute;
+}
+
+.line-7::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 100px;
+    /* 첫 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%238EF0F1"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-7::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 240px;
+    /* 두 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%238EF0F1"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-8 {
+    left: 80%;
+    width: 2px;
+    top: 0;
+    height: 642px;
+    background: linear-gradient(180deg, #A0E3FF 0%, #FFF 100%);
+    position: absolute;
+    z-index: -1;
+}
+
+.line-8::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 500px;
+    /* 첫 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%23B8EAFF"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-8::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 340px;
+    /* 두 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%23B8EAFF"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-9 {
+    left: 90%;
+    width: 2px;
+    top: 0;
+    height: 942px;
+    background: linear-gradient(180deg, #DFF8FC 0%, #FFF 100%);
+    position: absolute;
+    z-index: -1;
+}
+
+.line-10 {
+    left: 50%;
+    width: 2px;
+    top: 1340px;
+    height: 1480px;
+    background: linear-gradient(180deg, #15D1E9 100%, #FFF 100%);
+    position: absolute;
+    z-index: -1;
+}
+
+
+.line-10::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 1480px;
+    /* 두 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%2315D1E9"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.line-11 {
+    left: 50%;
+    width: 2px;
+    /* top: 1340px; */
+    height: 440px;
+    background: linear-gradient(180deg, #15D1E9 100%, #FFF 100%);
+    position: absolute;
+    z-index: -1;
+}
+
+.line-11::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -5px;
+    /* 라인 중앙에 위치하도록 조정 */
+    top: 440px;
+    /* 두 번째 도트 위치 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="%2315D1E9"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.circle-with-text {
+    width: 568px;
+    height: 568px;
+    border-radius: 50%;
+    background: #15D1E9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1800px;
+}
+
+.circle-content h3 {
+    color: #DCFFBF;
+    font-family: "SUIT Variable";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 140%;
+    /* 67.2px */
+    text-transform: uppercase;
+}
+
+.circle-content p {
+    color: #FFF;
+    text-align: center;
+    font-family: "SUIT Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    /* 36px */
+}
+
+.mission {
+    position: relative;
+    top: 1550px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.mission-title {
+    color: #15D1E9;
+    text-align: center;
+    font-family: "SUIT Variable";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    /* line-height: 140%; */
+    /* 67.2px */
+    text-transform: uppercase;
+    margin-bottom: 123px;
+}
+
+.mission-item {
+    position: relative;
+    padding-left: 150px;
+    /* Make space for the icon */
+    margin-bottom: 40px;
+}
+.mission-item:nth-child(1) {
+    position: relative;
+    margin: 0 auto;
+    width: 600px;
+    padding-left: 150px;
+    /* Make space for the icon */
+    margin-bottom: 167px;
+}
+
+
+.mission-item:nth-child(2) {
+    position: relative;
+    margin: 0 auto;
+    width: 600px;
+    left: -5%;
+    padding-left: 150px;
+    /* Make space for the icon */
+    margin-bottom: 167px;
+}
+
+
+.mission-item:nth-child(3) {
+    position: relative;
+    margin: 0 auto;
+    width: 600px;
+    padding-left: 150px;
+    left: 30%;
+    /* Make space for the icon */
+    margin-bottom: 167px;
+}
+
+.mission-item:nth-child(4) {
+    position: relative;
+    margin: 0 auto;
+    width: 600px;
+    padding-left: 150px;
+    left: -5%;
+    /* Make space for the icon */
+    margin-bottom: 167px;
+}
+
+.mission-item:nth-child(1)::before {
+    content: '';
+    position: absolute;
+    width: 103px;
+    height: 100px;
+    background-image: url('../public/images/group-1.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: 25px;
+    top: -15px;
+    transform: translateY(-50%);
+}
+
+
+.mission-item:nth-child(1)::after {
+    content: '';
+    position: absolute;
+    width: 103px;
+    height: 100px;
+    background-image: url('../public/images/group-2.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    top: 50px;
+    right: -100px;
+    transform: translateY(50%);
+}
+
+
+.mission-item h3 {
+    color: #1699D0;
+    font-family: "SUIT Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 140%;
+    margin-bottom: 8px;
+    /* 33.6px */
+}
+
+.mission-item p {
+    color: #1E1E1E;
+
+    /* Body 1 */
+    font-family: "SUIT Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    /* 32px */
+}
+
+.mission-item:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    width: 906px;
+    height: 770px;
+    background-image: url('../public/images/group-3.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: -60%;
+    top: 50%;
+    z-index: -1;
+    transform: translateY(-50%);
+}
+
+.mission-item:nth-child(3)::before {
+    content: '';
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    z-index: -1;
+    background-image: url('../public/images/group-3_right.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mission-item:nth-child(4)::before {
+    content: '';
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    background-image: url('../public/images/group-4.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: 7%;
+    top: 10%;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+.history {
+    position: relative;
+    top: 440px;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 600px;
+}
+
+/* 모바일 반응형 미디어 쿼리 수정 */
+@media screen and (max-width: 768px) {
+    /* 인사말 섹션 모바일 조정 */
+    .greeting_hi {
+        margin-top: 120px;
+        padding: 0 20px;
+        font-size: 16px;
+    }
+
+    .big_hi {
+        font-size: 32px;
+        margin-top: 40px;
+        margin-bottom: 24px;
+    }
+
+    .hi_content {
+        padding: 20px;
+        max-width: 100%;
+        margin: 0 20px;
+    }
+
+    .hi_content p {
+        font-size: 18px;
+        line-height: 140%;
+    }
+
+    .hi_content p+p {
+        font-size: 16px;
+        line-height: 150%;
+        margin-bottom: 16px;
+    }
+
+    .hi_content li {
+        font-size: 16px;
+        line-height: 150%;
+    }
+
+    .signature p:first-child {
+        font-size: 16px;
+        margin-top: 24px;
+    }
+
+    .signature p:last-child {
+        font-size: 20px;
+        margin-top: 12px;
+        letter-spacing: 8px;
+    }
+
+    /* 원형 섹션 모바일 조정 */
+    .circle-with-text {
+        width: 300px;
+        height: 300px;
+        top: 1200px;
+    }
+
+    .circle-content {
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .circle-content h3 {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .circle-content p {
+        font-size: 16px;
+        line-height: 140%;
+        padding: 0 20px;
+    }
+
+    /* 미션 섹션 모바일 조정 */
+    .mission {
+        top: 1000px;
+        padding: 0 20px;
+    }
+
+    .mission-title {
+        font-size: 32px;
+        margin-bottom: 60px;
+    }
+
+    .mission-item {
+        width: 100% !important;
+        left: 0 !important;
+        padding-left: 0px;
+        margin-bottom: 80px;
+        position: relative;
+        text-align: center;
+    }
+
+    .mission-item h3 {
+        font-size: 20px;
+        line-height: 130%;
+        margin-bottom: 12px;
+    }
+
+    .mission-item p {
+        font-size: 16px;
+        line-height: 150%;
+        text-align: left;
+        padding: 0 20px;
+    }
+
+    /* 미션 아이템 아이콘 모바일에서 상단에 배치 */
+    .mission-item:nth-child(1)::before {
+        width: 80px;
+        height: 80px;
+        left: 12%;
+        top: -120px;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    .mission-item:nth-child(1)::after {
+        width: 60px;
+        height: 60px;
+        right: 20px;
+        top: -60px;
+        transform: none;
+    }
+
+    .mission-item:nth-child(2)::before {
+        width: 180px;
+        height: 150px;
+        left: 12%;
+        top: -200px;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    .mission-item:nth-child(3)::before {
+        width: 100px;
+        height: 100px;
+        left: 12%;
+        top: -140px;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    .mission-item:nth-child(4)::before {
+        width: 80px;
+        height: 80px;
+        left: 12%;
+        top: -120px;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    /* 히스토리 섹션 모바일 조정 */
+    .history {
+        top: 300px;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    /* 배경 라인 모바일에서 중앙만 유지 */
+    .backgroundline .line-1,
+    .backgroundline .line-2,
+    .backgroundline .line-3,
+    .backgroundline .line-4,
+    .backgroundline .line-6,
+    .backgroundline .line-7,
+    .backgroundline .line-8,
+    .backgroundline .line-9 {
+        display: none;
+    }
+
+    /* 중앙 라인만 유지하고 조정 */
+    .line-5 {
+        height: 1000px;
+        left: 50%;
+    }
+
+    .line-10 {
+        top: 1100px;
+        height: 1000px;
+        left: 50%;
+    }
+
+    .line-11 {
+        height: 300px;
+        left: 50%;
+    }
+}
+
+/* 작은 모바일 디바이스 (480px 이하) */
+@media screen and (max-width: 480px) {
+    .greeting_hi {
+        margin-top: 100px;
+        font-size: 14px;
+    }
+
+    .big_hi {
+        font-size: 28px;
+        margin-top: 32px;
+        margin-bottom: 20px;
+    }
+
+    .hi_content {
+        margin: 0 10px;
+        padding: 15px;
+    }
+
+    .hi_content p {
+        font-size: 16px;
+    }
+
+    .hi_content p+p {
+        font-size: 14px;
+    }
+
+    .hi_content li {
+        font-size: 14px;
+    }
+
+    .circle-with-text {
+        width: 250px;
+        height: 250px;
+        top: 1100px;
+    }
+
+    .circle-content h3 {
+        font-size: 20px;
+    }
+
+    .circle-content p {
+        font-size: 14px;
+        padding: 0 15px;
+    }
+
+    .mission {
+        top: 900px;
+        padding: 0 15px;
+    }
+
+    .mission-title {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .mission-item {
+        padding-left: 0px;
+        margin-bottom: 70px;
+    }
+
+    .mission-item h3 {
+        font-size: 18px;
+    }
+
+    .mission-item p {
+        font-size: 14px;
+        padding: 0 15px;
+    }
+
+    /* 작은 화면에서 아이콘 크기 조정 */
+    .mission-item:nth-child(1)::before {
+        width: 60px;
+        height: 60px;
+        top: -100px;
+    }
+
+    .mission-item:nth-child(1)::after {
+        width: 40px;
+        height: 40px;
+        top: -50px;
+        right: 15px;
+    }
+
+    .mission-item:nth-child(2)::before {
+        width: 140px;
+        height: 120px;
+        top: -160px;
+    }
+
+    .mission-item:nth-child(3)::before {
+        width: 80px;
+        height: 80px;
+        top: -110px;
+    }
+
+    .mission-item:nth-child(4)::before {
+        width: 60px;
+        height: 60px;
+        top: -100px;
+    }
+
+    .history {
+        top: 250px;
+    }
+}
+
+/* 태블릿 반응형 (769px ~ 1024px) - 기존 유지 */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .greeting_hi {
+        margin-top: 200px;
+        padding: 0 40px;
+    }
+
+    .hi_content {
+        padding: 0 40px;
+        max-width: 900px;
+    }
+
+    .circle-with-text {
+        width: 450px;
+        height: 450px;
+        top: 1600px;
+    }
+
+    .circle-content h3 {
+        font-size: 36px;
+    }
+
+    .circle-content p {
+        font-size: 20px;
+    }
+
+    .mission {
+        top: 1350px;
+        padding: 0 40px;
+    }
+
+    .mission-item {
+        width: 500px !important;
+        padding-left: 120px;
+    }
+
+    .mission-item:nth-child(2) {
+        left: 0 !important;
+    }
+
+    .mission-item:nth-child(3) {
+        left: 20% !important;
+    }
+
+    .mission-item:nth-child(4) {
+        left: 0 !important;
+    }
+}

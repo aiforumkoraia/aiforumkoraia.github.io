@@ -2,157 +2,155 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>인사말</title> <!-- CSS 파일 연결 -->
-    <meta property="og:description" content="대한민국 AI 산업의 균형 발전과 윤리적 규제, 글로벌 협력을 통해 지속 가능한 AI 정책 생태계를 조성하는 한국인공지능정책원입니다.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국인공지능정책원</title> <!-- CSS 파일 연결 -->
+    <meta property="og:description"
+        content="대한민국 AI 산업의 균형 발전과 윤리적 규제, 글로벌 협력을 통해 지속 가능한 AI 정책 생태계를 조성하는 한국인공지능정책원입니다.">
     <meta property="og:title" content="한국인공지능정책원" />
     <meta property="og:type" content="website" />
-    <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="css/responsive-header.css" />
-
+    <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css"
+        rel="stylesheet">
     <meta property="og:image"
         content="https://github.com/aiforumkoraia/aiforumkoraia.github.io/blob/main/img/og25_img.png?raw=true" />
     <link rel="icon" href="https://koraia.org/default/img/symbol.ico">
+    <link rel="stylesheet" href="css/styleforum.css">
 </head>
 
 <body>
-    <header class="header">
-        <div class="logo">
-            <!-- 사이트 로고나 텍스트 -->
-            <a href="/"><img src="public/images/logo_B.svg" alt="로고"></a>
-        </div>
-        <nav class="nav">
-            <ul>
-                <li>
-                    <a href="javascript:void(0);">정책원 소개</a>
-                    <ul class="submenu">
-                        <li><a href="greeting">인사말</a></li>
-                        <li><a href="vision">비전</a></li>
-                        <li><a href="expected-outcomes">기대효과</a></li>
-                        <li><a href="overview">개요</a></li>
-                        <li><a href="organization">조직구성</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0);">정책원 활동</a>
-                    <ul class="submenu">
-                        <li><a href="annual-plan">연간 활동 계획</a></li>
-                        <li><a href="key-topics">주요 주제</a></li>
-                        <li><a href="key-deliverables">주요 산출물</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0);">정책원 소식</a>
-                    <ul class="submenu">
-                        <li><a href="news">관련기사</a></li>
-                        <li><a href="events">행사안내</a></li>
-                        <li><a href="media">사진/영상</a></li>
-                    </ul>
-                </li>
-                <li><a href="membership-form">입회원서</a>
-                    <ul class="submenu">
-                        <li><a href="membership-form">입회원서</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="/">한국인공지능정책원</a>
+                </div>
 
-        <!-- 햄버거 메뉴 버튼 -->
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+                <!-- 햄버거 메뉴 버튼 추가 -->
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <ul class="nav-menu">
+                    <li class="nav-item clicked">
+                        <a href="greeting" class="nav-link">한국인공지능정책원 소개</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="policy" class="nav-link">인공지능정책</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pa" class="nav-link">정책 파트너십</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">공개 자료</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
-    <!-- 모바일 네비게이션 오버레이 -->
-    <div class="mobile-nav-overlay"></div>
+    <div class="greeting_hi">
+        <div>소개</div>
+        <div class="big_hi">인사말</div>
+        <div class="hi_content">
+            <p style="margin-bottom: 32px;">안녕하십니까.<br>
+                한국인공지능정책원 원장 손장혁입니다.</p>
 
-    <!-- 모바일 네비게이션 메뉴 -->
-    <nav class="mobile-nav">
-        <div class="mobile-nav-header">
-            <img src="public/images/logo_B.svg" alt="로고" style="height: 30px;">
-            <button class="mobile-nav-close">&times;</button>
-        </div>
-        <ul>
-            <li>
-                <a href="javascript:void(0);">
-                    정책원 소개
-                    <button class="submenu-toggle">&#9662;</button>
-                </a>
-                <ul class="mobile-submenu">
-                    <li><a href="greeting">인사말</a></li>
-                    <li><a href="vision">비전</a></li>
-                    <li><a href="expected-outcomes">기대효과</a></li>
-                    <li><a href="overview">개요</a></li>
-                    <li><a href="organization">조직구성</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:void(0);">
-                    정책원 활동
-                    <button class="submenu-toggle">&#9662;</button>
-                </a>
-                <ul class="mobile-submenu">
-                    <li><a href="annual-plan">연간 활동 계획</a></li>
-                    <li><a href="key-topics">주요 주제</a></li>
-                    <li><a href="key-deliverables">주요 산출물</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:void(0);">
-                    정책원 소식
-                    <button class="submenu-toggle">&#9662;</button>
-                </a>
-                <ul class="mobile-submenu">
-                    <li><a href="news">관련기사</a></li>
-                    <li><a href="events">행사안내</a></li>
-                    <li><a href="media">사진/영상</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="membership-form">입회원서</a>
-            </li>
-        </ul>
-    </nav>
-    <section>
-        <div class="nav_banner">
-            <p class="nav_banner_text">정책원 소개</p>
-            <div class="breadcrumb">홈 <img src="public/images/arrow.svg" alt="arrow" class="breadcrumb_arrow"> 정책원 소개
-                <img src="public/images/arrow.svg" alt="arrow" class="breadcrumb_arrow"> 인사말
+            <p>한국인공지능정책원은 기초과학 데이터를 활용한 예측형 인공지능을 통해,
+                산업의 혁신을 넘어 기초과학의 산업화,우수 인재의 양성, 양질의 일자리 창출로 이어지는 새로운 도약의 기회를 만들어가고자 합니다.</p>
+
+            <p>이제는 기술을 위한 기술이 아닌, 기초과학과 AI가 융합된 '지속가능한 산업 생태계'를 구축해야 할 때입니다.</p>
+
+            <p>우리는 연구에서 산업으로, 산업에서 사회적 가치로 이어지는 선순환 구조를 만들기 위해 행동에 나설 것입니다.</p>
+
+            <p style="margin-top: 16px;">한국인공지능정책원은<br>
+                <li>기초과학을 바탕으로 한 신산업 시장을 개척하고,</li>
+                <li>과학윤리를 기반으로 한 R&D 생태계를 조성하며,</li>
+                <li>예측형 AI의 잠재력을 현실화하는 혁신 정책을 실현하겠습니다.</li>
+            </p><br>
+            <p></p>
+            <p>
+                나아가 낡은 연구개발 제도는 과감히 혁신하고, 창의와 도전이 숨 쉬는 연구 환경을 통해 대한민국이 세계를 선도하는 AI 강국으로 도약할 수 있도록 앞장서겠습니다.</p>
+
+            <p>감사합니다.</p>
+
+            <div class="signature">
+                <p>한국인공지능정책원장</p>
+                <p>손장혁</p>
             </div>
-    </section>
+        </div>
+    </div>
 
-    <section>
-        <h1 class="head_title">인사말<br><img src="public/images/Line 18.svg" alt="Line 18" class="title_line"></h1>
-        <div class="greeting-images">
-            <img src="img/greeting_1.png" alt="Greeting Image">
-            <img src="img/greeting_img.png" alt="Greeting Image">
+    <div class="circle-with-text">
+        <div class="circle-content">
+            <h3>VISON & GOAL</h3>
+            <p>기초과학과 인공지능의 융합으로<br>지속가능한 미래혁신 산업기반구축</p>
+        </div>
+    </div>
+
+    <section class="mission">
+        <h2 class="mission-title">MISSION</h2>
+
+        <div class="mission-container">
+            <div class="mission-item">
+                <h3>기초과학 기반 예측형 인공지능<br> 연구 클러스터 구축</h3>
+                <p>융합형 연구 거점을 조성하여, 기초과학과 인공지능을 연결하는 전략적 연구 생태계를 마련합니다.</p>
+            </div>
+            <div class="mission-item">
+                <h3>미래 세대를 위한 지속가능한 <br>AI 혁신 생태계 조성</h3>
+                <p>자율성과 윤리를 기반으로 한 AI 연구 환경을 구축하고, 지속가능한 인재·기술 순환 구조를 설계합니다.</p>
+            </div>
+            <div class="mission-item">
+                <h3>기초과학 R&D 환경의 <br>제도적 개선과 정책 혁신</h3>
+                <p>창의적이고 도전적인 연구가 실현될 수 있도록, 불합리한 제도를 개선하고 과학자 중심의 연구지원체계를 확립합니다.</p>
+            </div>
+            <div class="mission-item">
+                <h3>산업계와의 전략적 협력을 통한 <br>글로벌 시장 진출 기반 마련</h3>
+                <p>산업계와의 공동연구, 기술사업화, 데이터 공유 등을 통해 기초과학-AI 융합기술의 국제 경쟁력을 강화하고, 세계 시장으로 확장 가능한 산업 기반을 구축합니다.</p>
+            </div>
         </div>
 
+        <div>
+            <div class="line line-11"></div>
+        </div>
+
+        <div class="history">
+            <h2 class="mission-title">주요 연혁</h2>
+        </div>
+
     </section>
 
-    <footer>
-        <div class="footer">
-            <div class="footer_logo">
-                <img src="public/images/logo_B.svg" alt="로고">
-                <img src="public/images/to_top_btn.svg" alt="맨 위로" class="to-top-btn">
 
-            </div>
-            <div class="footer_text">
-                <p>서울특별시 마포구 백범로 88 (대흥동) 경총회관 3층<br>
-                    T. 02-713-4800・F. 02-6971-8901・E-mail. info@koraia.org</p>
-            </div>
 
-            <hr style="background: #011131; height: 0.3px;">
-            <div class="footer_copylight">ⓒ 2025 AI Policy Forum, All Rights Reserved.</div>
-
-    </footer>
-
-    <script src="js/common.js"></script>
-    <script src="js/mobile-nav.js"></script>
+    <div class="backgroundline">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+        <div class="line line-4"></div>
+        <div class="line line-5"></div>
+        <div class="line line-6"></div>
+        <div class="line line-7"></div>
+        <div class="line line-8"></div>
+        <div class="line line-9"></div>
+        <div class="line line-10"></div>
+    </div>
 </body>
+<script>
+    // 햄버거 메뉴 토글 기능
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // 메뉴 항목 클릭 시 메뉴 닫기
+    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }));
+</script>
 
 </html>
