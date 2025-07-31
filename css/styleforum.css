@@ -1529,3 +1529,165 @@ header {
         left: 0 !important;
     }
 }
+
+/* 연혁 섹션 - 미니멀 대기업 스타일 */
+.history {
+    position: relative;
+    top: 300px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+.history-timeline {
+    position: relative;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding: 24px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+.timeline-dot {
+    display: none;
+}
+
+.timeline-content {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.timeline-date {
+    color: #666666;
+    font-family: "SUIT Variable";
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0;
+    display: block;
+    min-width: 120px;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+}
+
+.timeline-text {
+    color: #1E1E1E;
+    font-family: "SUIT Variable";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 160%;
+    flex: 1;
+}
+
+.timeline-text a {
+    color: #1E1E1E;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.timeline-text a:hover {
+    color: #15D1E9;
+}
+
+/* 반응형 - 모바일 */
+@media screen and (max-width: 768px) {
+    .history {
+        top: 300px;
+        padding: 40px 20px;
+        max-width: 100%;
+    }
+
+    .timeline-item {
+        margin-bottom: 32px;
+        padding: 20px 0;
+    }
+
+    .timeline-content {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .timeline-date {
+        font-size: 14px;
+        min-width: auto;
+        margin-bottom: 4px;
+    }
+
+    .timeline-text {
+        font-size: 15px;
+        line-height: 150%;
+    }
+}
+
+.timeline-date {
+    color: #15D1E9;
+    font-family: "SUIT Variable";
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.timeline-text {
+    color: #1E1E1E;
+    font-family: "SUIT Variable";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+
+.timeline-text a:hover {
+    text-decoration: underline;
+}
+
+/* 반응형 - 모바일 */
+@media screen and (max-width: 768px) {
+    .history {
+        top: 300px;
+        padding: 20px 15px;
+        max-width: 100%;
+    }
+
+    .history-timeline {
+        padding-left: 40px;
+    }
+
+    .history-timeline::before {
+        left: 20px;
+    }
+
+    .timeline-dot {
+        left: -34px;
+        width: 10px;
+        height: 10px;
+        border-width: 2px;
+        top: 14px;
+    }
+
+    .timeline-content {
+        padding: 16px;
+    }
+
+    .timeline-date {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .timeline-text {
+        font-size: 14px;
+    }
+}
